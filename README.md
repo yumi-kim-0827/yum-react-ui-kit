@@ -1,40 +1,165 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💡Simple todo pwa
 
-## Getting Started
+본 프로젝트는 React의 주요 장점 중 하나인 코드 스플리팅과 컴포넌트 분리를 통해 효율성을 극대화한 리액트 컴포넌트 KIT 입니다. 또한 CSS, SCSS와 같은 전통적인 스타일 시트 언어의 사용을 최고화하고, 'styled-components'를 활영하여 UI 렌더링을 구현하였습니다.
 
-First, run the development server:
+# 🖥️View web site
+
+<!--프로젝트 대문 이미지-->
+
+<!--목차-->
+
+# Table of Contents
+
+- [[1] About the Project](#1-about-the-project)
+  - [Features](#features)
+  - [Technologies](#technologies)
+- [[2] Getting Started](#2-getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+- [[3] Usage](#3-usage)
+- [[4] Contribution](#4-contribution)
+- [[5] Acknowledgement](#5-acknowledgement)
+- [[6] Contact](#6-contact)
+- [[7] License](#7-license)
+
+# [1] About the Project
+
+오늘 할 일, 하고싶은 일을 추가, 수정, 삭제할 수있는 투두리스트 웹앱입니다.
+다크모드의 모던한 투두리스트 웹앱으로 모바일 등 다양한 디바이스 반응형으로 제작되었습니다.
+
+## Features
+
+- pwa 환경 설정으로 모바일에서 웹앱 다운로드 설치 가능
+  ![todolist_react_download](https://github.com/yumi-kim-0827/simpletodo/assets/116349476/2e30af5d-d151-4a3c-b609-16cd889e0cda)
+
+## Technologies
+
+- React js
+- scss
+- javascript
+
+# [2] Getting Started
+
+## Prerequisites
+
+- npm
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install npm@latest -g
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Installation
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. Repository 클론
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+git clone https://github.com/your-username/project-repository
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+2. NPM packages 설치
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm install
+```
 
-## Learn More
+# [3] Usage
 
-To learn more about Next.js, take a look at the following resources:
+useReducer을 활용한 리스트 추가, 삭제, 수정 기능
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```java
+//리듀서 등록
+const reducer = (todoList, action) => {
+  switch (action.type) {
+    case "CREATE":
+      return [action.data, ...todoList];
+    case "UPDATE":
+      return todoList.map((item) =>
+        item.id == action.data.id ? action.data : item
+      );
+    case "DELETE":
+      return todoList.filter((item) => item.id !== action.data.id);
+  }
+};
+.
+.
+//add
+  const onCreateHandler = () => {
+    if (input.length > 0) {
+      dispatch({
+        type: "CREATE",
+        data: {
+          id: idRef.current++,
+          content: input,
+        },
+      });
+    } else {
+      alert("입력폼에 적어주세요.");
+    }
+    setInput("");
+  };
+  //update
+  const onUpdateHandler = (id) => {
+    if (updateInput.length > 0) {
+      dispatch({
+        type: "UPDATE",
+        data: {
+          id,
+          content: updateInput,
+        },
+      });
+    }
+    setInput("");
+  };
+  //delete
+  const onDeleteHandler = (id) => {
+    dispatch({
+      type: "DELETE",
+      data: {
+        id,
+      },
+    });
+    setInput("");
+  };
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# [4] Contribution
 
-## Deploy on Vercel
+버그 수정에 🐞, 아이디어 제공에 💡, 새로운 기능 구현에 ✨를 사용할 수 있습니다.\*
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- (예시) 🐞 [YUMEEKIM](https://github.com/yumi-kim-0827): 메인페이지 버그 수정
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# [5] Acknowledgement
+
+- design https://www.behance.net/gallery/197368319/Salesforce-CRM-AI-Scheduler-UX-UI-Design?tracking_source=search_projects&l=5
+
+# [6] Contact
+
+- 📧 yumee0827@naver.com
+- 📋 [https://github.com/yumi-kim-0827](https://github.com/yumi-kim-0827)
+
+# [7] License
+
+MIT 라이센스
+
+<!--Url for Badges-->
+
+[license-shield]: https://img.shields.io/github/license/dev-ujin/readme-template?labelColor=D8D8D8&color=04B4AE
+[repository-size-shield]: https://img.shields.io/github/repo-size/dev-ujin/readme-template?labelColor=D8D8D8&color=BE81F7
+[issue-closed-shield]: https://img.shields.io/github/issues-closed/dev-ujin/readme-template?labelColor=D8D8D8&color=FE9A2E
+
+<!--Url for Buttons-->
+
+[readme-eng-shield]: https://img.shields.io/badge/-readme%20in%20english-2E2E2E?style=for-the-badge
+[view-demo-shield]: https://img.shields.io/badge/-%F0%9F%98%8E%20view%20demo-F3F781?style=for-the-badge
+[view-demo-url]: https://dev-ujin.github.io
+[report-bug-shield]: https://img.shields.io/badge/-%F0%9F%90%9E%20report%20bug-F5A9A9?style=for-the-badge
+[report-bug-url]: https://github.com/dev-ujin/readme-template/issues
+[request-feature-shield]: https://img.shields.io/badge/-%E2%9C%A8%20request%20feature-A9D0F5?style=for-the-badge
+[request-feature-url]: https://github.com/dev-ujin/readme-template/issues
+
+<!--URLS-->
+
+[license-url]: LICENSE.md
+[contribution-url]: CONTRIBUTION.md
+[readme-eng-url]: ../README.md
