@@ -10,7 +10,6 @@ import CardHead from "@/components/UI/CardHead";
 import PlayGround from "@/components/UI/PlayGround";
 import { BaseButton } from "@/yum_ui_kit/BaseButton.style";
 import { GradientButton } from "@/yum_ui_kit/GradientButton.style";
-import { ButtonWithIcon } from "@/yum_ui_kit/ButtonWithIcon.style";
 import { OutlineButton } from "@/yum_ui_kit/OutlineButton.style";
 import { BaseInput } from "@/yum_ui_kit/BaseInput.style";
 import { BaseTextArea } from "@/yum_ui_kit/BaseTextArea.style";

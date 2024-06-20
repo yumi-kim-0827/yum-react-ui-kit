@@ -1,10 +1,12 @@
-# 💡Simple todo pwa
+# 💡React Component Gradient UI kit
 
-본 프로젝트는 React의 주요 장점 중 하나인 코드 스플리팅과 컴포넌트 분리를 통해 효율성을 극대화한 리액트 컴포넌트 KIT 입니다. 또한 CSS, SCSS와 같은 전통적인 스타일 시트 언어의 사용을 최고화하고, 'styled-components'를 활영하여 UI 렌더링을 구현하였습니다.
+본 프로젝트는 React의 주요 장점 중 하나인 코드 스플리팅과 컴포넌트 분리를 통해 효율성을 극대화한 리액트 컴포넌트 KIT 입니다. 또한 CSS, SCSS와 같은 전통적인 스타일 시트 언어의 사용을 최소화하고, 'styled-components'를 활용하여 UI 렌더링을 구현하였습니다.
 
 # 🖥️View web site
 
 <!--프로젝트 대문 이미지-->
+
+![sc1](https://github.com/yumi-kim-0827/yum-react-ui-kit/assets/116349476/45261959-fdbe-4937-a5da-b7a7c1a6cea6)
 
 <!--목차-->
 
@@ -25,19 +27,17 @@
 
 # [1] About the Project
 
-오늘 할 일, 하고싶은 일을 추가, 수정, 삭제할 수있는 투두리스트 웹앱입니다.
-다크모드의 모던한 투두리스트 웹앱으로 모바일 등 다양한 디바이스 반응형으로 제작되었습니다.
+메인과 서브 컬라를 정하면 맞춤 칼라를 적용한 리액트 컴포넌트 UI KIT 코드를
+복사하셔서 사용하실 수 있습니다.
 
 ## Features
-
-- pwa 환경 설정으로 모바일에서 웹앱 다운로드 설치 가능
-  ![todolist_react_download](https://github.com/yumi-kim-0827/simpletodo/assets/116349476/2e30af5d-d151-4a3c-b609-16cd889e0cda)
 
 ## Technologies
 
 - React js
-- scss
-- javascript
+- Typescript
+- Next.js
+- styled-components
 
 # [2] Getting Started
 
@@ -65,62 +65,22 @@ npm install
 
 # [3] Usage
 
-useReducer을 활용한 리스트 추가, 삭제, 수정 기능
+'react-color-palette'을 사용하여 컬러 선택과 상태관리를 구현하였습니다.
 
 ```java
-//리듀서 등록
-const reducer = (todoList, action) => {
-  switch (action.type) {
-    case "CREATE":
-      return [action.data, ...todoList];
-    case "UPDATE":
-      return todoList.map((item) =>
-        item.id == action.data.id ? action.data : item
-      );
-    case "DELETE":
-      return todoList.filter((item) => item.id !== action.data.id);
-  }
-};
-.
-.
-//add
-  const onCreateHandler = () => {
-    if (input.length > 0) {
-      dispatch({
-        type: "CREATE",
-        data: {
-          id: idRef.current++,
-          content: input,
-        },
-      });
-    } else {
-      alert("입력폼에 적어주세요.");
-    }
-    setInput("");
-  };
-  //update
-  const onUpdateHandler = (id) => {
-    if (updateInput.length > 0) {
-      dispatch({
-        type: "UPDATE",
-        data: {
-          id,
-          content: updateInput,
-        },
-      });
-    }
-    setInput("");
-  };
-  //delete
-  const onDeleteHandler = (id) => {
-    dispatch({
-      type: "DELETE",
-      data: {
-        id,
-      },
-    });
-    setInput("");
-  };
+
+  const [color, setColor] = useColor("#561ecb");
+  const [secondColor, setSecondColor] = useColor("#28aefa");
+
+  <Card>
+    <CardHead>1. 메인칼라를 고르세요</CardHead>
+    <ColorPicker color={color} onChange={setColor} />
+  </Card>
+  <Card>
+    <CardHead>2. 서브칼라를 고르세요</CardHead>
+    <ColorPicker color={secondColor} onChange={setSecondColor} />
+  </Card>
+
 ```
 
 # [4] Contribution
@@ -131,7 +91,7 @@ const reducer = (todoList, action) => {
 
 # [5] Acknowledgement
 
-- design https://www.behance.net/gallery/197368319/Salesforce-CRM-AI-Scheduler-UX-UI-Design?tracking_source=search_projects&l=5
+- [design](https://www.behance.net/gallery/196517557/Design-System-UIUX-Design-Design-Library?tracking_source=search_projects|gradient+ui+kit&l=8)
 
 # [6] Contact
 
