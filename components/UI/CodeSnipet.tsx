@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 interface CodeSnipetProps {
-  children: string;
+  children: React.ReactNode;
 }
 
 const CodeSnipetWrap = styled.pre`

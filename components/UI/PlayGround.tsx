@@ -29,25 +29,36 @@ const PlayGroundContent = styled.div`
 
 const PlayGround: React.FC<PlayGounrdProps> = ({ children }) => {
   const [componentName, setComponentName] = useState<string>("");
-  const childremStyle = children?.type?.styledComponentId;
+
+  console.log(children);
 
   const getComponentName = () => {
-    const cutStringIdx = childremStyle?.indexOf("style");
-    if (cutStringIdx !== -1) {
-      return childremStyle.slice(0, cutStringIdx);
+    if (React.isValidElement(children)) {
+      const childType = children.type as any;
+      if (childType?.styledComponentId) {
+        const cutStringIdx = childType.styledComponentId.indexOf("style");
+        if (cutStringIdx !== -1) {
+          return childType.styledComponentId.slice(0, cutStringIdx);
+        }
+      }
     }
+    return "";
   };
 
   useEffect(() => {
     const result = getComponentName();
     setComponentName(result);
-  }, []);
+  }, [getComponentName]);
 
   const codeSnippet = getCode(componentName);
 
-  const handlerCodeCopy = () => {
-    window.navigator.clipboard.writeText(codeSnippet);
-    alert("코드 복사가 완료되었습니다.");
+  const handlerCodeCopy: React.MouseEventHandler<HTMLButtonElement> = () => {
+    if (codeSnippet) {
+      window.navigator.clipboard.writeText(codeSnippet);
+      alert("코드 복사가 완료되었습니다.");
+    } else {
+      alert("복사할 코드가 없습니다.");
+    }
   };
 
   return (

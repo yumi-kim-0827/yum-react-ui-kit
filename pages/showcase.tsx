@@ -15,7 +15,7 @@ import { BaseInput } from "@/yum_ui_kit/BaseInput.style";
 import { BaseTextArea } from "@/yum_ui_kit/BaseTextArea.style";
 import { BaseFormFile } from "@/yum_ui_kit/BaseFormFile.style";
 
-const showcase = () => {
+const Showcase = () => {
   const [color, setColor] = useColor("#561ecb");
   const [secondColor, setSecondColor] = useColor("#28aefa");
   const { r, g, b, a } = color.rgb;
@@ -93,4 +93,4 @@ const showcase = () => {
   );
 };
 
-export default showcase;
+export default Showcase;
