@@ -15,7 +15,7 @@
 
 # production
 /build
-# /sourceCode/
+/sourceCode/
 
 # misc
 .DS_Store
