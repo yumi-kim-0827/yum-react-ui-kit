@@ -7,6 +7,8 @@ import { getCode } from "@/util/getCode";
 
 interface PlayGounrdProps {
   children: React.ReactNode;
+  colorHex: string;
+  subColorHex: string;
 }
 
 const PlayGroundContainer = styled.div`
@@ -27,10 +29,12 @@ const PlayGroundContent = styled.div`
   overflow-x: auto;
 `;
 
-const PlayGround: React.FC<PlayGounrdProps> = ({ children }) => {
+const PlayGround: React.FC<PlayGounrdProps> = ({
+  children,
+  colorHex,
+  subColorHex,
+}) => {
   const [componentName, setComponentName] = useState<string>("");
-
-  console.log(children);
 
   const getComponentName = () => {
     if (React.isValidElement(children)) {
@@ -50,7 +54,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({ children }) => {
     setComponentName(result);
   }, [getComponentName]);
 
-  const codeSnippet = getCode(componentName);
+  const codeSnippet = getCode(componentName, colorHex, subColorHex);
 
   const handlerCodeCopy: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (codeSnippet) {

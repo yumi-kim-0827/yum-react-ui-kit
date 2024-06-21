@@ -6,6 +6,7 @@ interface BaseInputProps {
   g?: number;
   b?: number;
   a?: number;
+  placeholder?: string;
 }
 
 export const BaseInput = styled.input<BaseInputProps>`

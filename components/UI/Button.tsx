@@ -3,14 +3,14 @@ import Link from "next/link";
 import styled from "styled-components";
 
 interface ButtonProps {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   text: string;
-  link?: string;
 }
 
 const ButtonWrap = styled.button`
   padding: 20px;
   border-radius: 10px;
-  color: #000;
+  color: #fff;
   font-weight: bold;
   border: 1px solid #71536d;
   background-color: #955a8e;
@@ -22,12 +22,8 @@ const ButtonWrap = styled.button`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ text, link }) => {
-  return (
-    <ButtonWrap>
-      <Link href={`${link}`}>{text}</Link>
-    </ButtonWrap>
-  );
+const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
+  return <ButtonWrap onClick={onClick}>{text}</ButtonWrap>;
 };
 
 export default Button;

@@ -6,13 +6,13 @@ interface BaseTextAreaProps {
   g?: number;
   b?: number;
   a?: number;
+  placeholder?: string;
 }
 
 export const BaseTextArea = styled.textarea<BaseTextAreaProps>`
   padding: 10px;
   width: 100%;
   height: 100px;
-  resize: none;
   border: 1px solid
     rgba(
       ${(props) => props.r || 0},
@@ -29,4 +29,5 @@ export const BaseTextArea = styled.textarea<BaseTextAreaProps>`
         ${(props) => props.a || 1}
       );
   }
+  resize: none;
 `;
