@@ -1,12 +1,13 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
+//Components
 import Layout from "@/components/Layout/Layout";
 import Grid from "@/components/Layout/Grid";
 import HeadingTitle from "@/components/UI/HeadingTitle";
 import Button from "@/components/UI/Button";
 import CardList from "@/components/UI/CardList";
 
-export default function Home() {
+const Home = () => {
   const router = useRouter();
 
   const handleClick = () => {
@@ -49,7 +50,7 @@ export default function Home() {
               "사용자들이 원하는 컬러를 선택하고, 해당 컬러에 맞춘 UI 컴포넌트를 재사용 가능한 코드로 제공하는 라이브러리 사이트"
             }
           />
-          <Button text={"쇼케이스 보기"} onClick={handleClick} />
+          <Button onClick={handleClick}>쇼케이스 보기</Button>
         </Grid>
         <Grid column={"1fr"} place={"center"}>
           <HeadingTitle
@@ -57,9 +58,10 @@ export default function Home() {
               "사용자들이 원하는 컬러를 선택하고, 해당 컬러에 맞춘 UI 컴포넌트를 재사용 가능한 코드로 제공하는 라이브러리 사이트"
             }
           />
-          <CardList cardListData={cardListData} />
+          <CardList ListData={cardListData} />
         </Grid>
       </Layout>
     </>
   );
-}
+};
+export default Home;

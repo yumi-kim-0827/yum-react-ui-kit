@@ -3,9 +3,9 @@ import Image from "next/image";
 import styled from "styled-components";
 
 export interface CardListItemProps {
-  text: string;
-  imgSrc: string;
-  reference: string;
+  text?: string;
+  imgSrc?: string;
+  reference?: string;
 }
 
 const CardListItemWrap = styled.li`
@@ -18,19 +18,19 @@ const CardListItemWrap = styled.li`
   }
 `;
 
-export const CardListItem: React.FC<{ cardListItem: CardListItemProps }> = ({
-  cardListItem,
+export const CardListItem: React.FC<{ ListItem: CardListItemProps }> = ({
+  ListItem,
 }) => {
   return (
     <CardListItemWrap>
       <Image
-        src={`/images/${cardListItem.imgSrc}`}
+        src={`/images/${ListItem.imgSrc}`}
         alt=""
         width={200}
         height={200}
       />
-      <h3>{cardListItem.text}</h3>
-      <span>{cardListItem.reference}</span>
+      <h3>{ListItem.text}</h3>
+      <span>{ListItem.reference}</span>
     </CardListItemWrap>
   );
 };

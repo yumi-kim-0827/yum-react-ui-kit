@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components";
 import Link from "next/link";
+import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   padding: 20px;
@@ -35,6 +35,9 @@ const Header = () => {
             </li>
             <li>
               <Link href="/showcase">Showcase</Link>
+            </li>
+            <li>
+              <Link href="/gallery">Gallery</Link>
             </li>
           </ul>
         </MenuNav>

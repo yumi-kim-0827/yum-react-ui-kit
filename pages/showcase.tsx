@@ -2,12 +2,14 @@ import React from "react";
 import Head from "next/head";
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/css";
+//Components
 import Layout from "@/components/Layout/Layout";
 import Grid from "@/components/Layout/Grid";
 import SubjectTitle from "@/components/UI/SubjectTitle";
 import Card from "@/components/UI/Card";
 import CardHead from "@/components/UI/CardHead";
 import PlayGround from "@/components/UI/PlayGround";
+//YUM UI
 import { BaseButton } from "@/yum_ui_kit/BaseButton.style";
 import { GradientButton } from "@/yum_ui_kit/GradientButton.style";
 import { OutlineButton } from "@/yum_ui_kit/OutlineButton.style";

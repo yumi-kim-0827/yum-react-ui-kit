@@ -1,14 +1,15 @@
 import React from "react";
-import Link from "next/link";
 import styled from "styled-components";
 
 interface ButtonProps {
   onClick: React.MouseEventHandler<HTMLButtonElement>;
-  text: string;
+  children: string;
 }
 
 const ButtonWrap = styled.button`
   padding: 20px;
+  width: 100%;
+  max-width: 200px;
   border-radius: 10px;
   color: #fff;
   font-weight: bold;
@@ -22,8 +23,8 @@ const ButtonWrap = styled.button`
   }
 `;
 
-const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
-  return <ButtonWrap onClick={onClick}>{text}</ButtonWrap>;
+const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
+  return <ButtonWrap onClick={onClick}>{children}</ButtonWrap>;
 };
 
 export default Button;

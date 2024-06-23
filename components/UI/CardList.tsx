@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { CardListItem, CardListItemProps } from "@/components/UI/CardListItem";
 
 interface CardListProps {
-  cardListData?: CardListItemProps[];
+  ListData?: CardListItemProps[];
 }
 
 const CardListWrap = styled.ul`
@@ -14,11 +14,11 @@ const CardListWrap = styled.ul`
   background-color: #e9e5e9;
 `;
 
-const CardList: React.FC<CardListProps> = ({ cardListData }) => {
+const CardList: React.FC<CardListProps> = ({ ListData }) => {
   return (
     <CardListWrap>
-      {cardListData?.map((cardListItem, id) => {
-        return <CardListItem key={id} cardListItem={cardListItem} />;
+      {ListData?.map((ListItem, id) => {
+        return <CardListItem key={id} ListItem={ListItem} />;
       })}
     </CardListWrap>
   );
