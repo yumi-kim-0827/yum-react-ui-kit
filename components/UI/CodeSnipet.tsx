@@ -7,6 +7,7 @@ interface CodeSnipetProps {
 
 const CodeSnipetWrap = styled.pre`
   padding: 10px;
+  max-height: 600px;
   white-space: pre-wrap;
   color: #c2abbf;
   background-color: #2c232b;

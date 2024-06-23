@@ -43,7 +43,7 @@ const Showcase = () => {
           text={"버튼 종류 : BaseButton, GradientButton"}
         />
         <Grid column="repeat(2, 1fr)">
-          <PlayGround colorHex={color.hex} subColorHex={color.hex}>
+          <PlayGround colorHex={color.hex} subColorHex={secondColor.hex}>
             <BaseButton
               r={color.rgb.r}
               g={color.rgb.g}
@@ -53,7 +53,7 @@ const Showcase = () => {
               베이스버튼
             </BaseButton>
           </PlayGround>
-          <PlayGround colorHex={color.hex} subColorHex={color.hex}>
+          <PlayGround colorHex={color.hex} subColorHex={secondColor.hex}>
             <GradientButton
               r={color.rgb.r}
               g={color.rgb.g}
@@ -67,7 +67,7 @@ const Showcase = () => {
               그라데이션버튼
             </GradientButton>
           </PlayGround>
-          <PlayGround colorHex={color.hex} subColorHex={color.hex}>
+          <PlayGround colorHex={color.hex} subColorHex={secondColor.hex}>
             <OutlineButton
               r={color.rgb.r}
               g={color.rgb.g}
