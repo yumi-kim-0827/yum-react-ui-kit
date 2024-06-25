@@ -13,6 +13,9 @@ const Main = styled.main`
   border-radius: 10px;
   box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.2),
     -8px -8px 16px rgba(255, 255, 255, 0.2);
+  @media ${({ theme }) => theme.device.midium} {
+    width: 90%;
+  }
 `;
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

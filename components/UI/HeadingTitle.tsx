@@ -11,8 +11,11 @@ const HeadingTitleBig = styled.h1`
   font-size: 50px;
   text-align: center;
   font-weight: bold;
-  p {
+  @media ${({ theme }) => theme.device.midium} {
     font-size: 30px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    font-size: 22px;
   }
 `;
 
@@ -21,8 +24,11 @@ const HeadingTitleSub = styled.p`
   font-size: 30px;
   text-align: center;
   font-weight: bold;
-  p {
-    font-size: 30px;
+  @media ${({ theme }) => theme.device.midium} {
+    font-size: 20px;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    font-size: 16px;
   }
 `;
 
