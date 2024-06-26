@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import Grid from "@/components/Layout/Grid";
 import CodeSnipet from "@/components/UI/CodeSnipet";
 import ButtonWithIcon from "@/components/UI/ButtonWithIcon";
 import { getCode } from "@/util/getCode";
@@ -52,7 +51,8 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
   useEffect(() => {
     const result = getComponentName();
     setComponentName(result);
-  }, [getComponentName]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const codeSnippet = getCode(componentName, colorHex, subColorHex);
 

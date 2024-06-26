@@ -3,7 +3,6 @@ import Image from "next/image";
 import styled from "styled-components";
 
 interface ButtonWithIconProps {
-  children: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   imgSrc: string;
 }
@@ -25,14 +24,9 @@ const ButtonWithIconWrap = styled.button`
   }
 `;
 
-const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({
-  children,
-  onClick,
-  imgSrc,
-}) => {
+const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({ onClick, imgSrc }) => {
   return (
     <ButtonWithIconWrap onClick={onClick}>
-      {children}
       <Image
         // fill
         src={`/images/${imgSrc}`}
