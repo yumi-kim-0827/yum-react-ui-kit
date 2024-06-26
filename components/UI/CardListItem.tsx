@@ -16,6 +16,18 @@ const CardListItemWrap = styled.li`
   &:last-child {
     border: 0;
   }
+  @media ${({ theme }) => theme.device.midium} {
+    border-right: 0;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    border-right: 0;
+    h3 {
+      font-size: 16px;
+    }
+    span {
+      font-size: 14px;
+    }
+  }
 `;
 
 export const CardListItem: React.FC<{ ListItem: CardListItemProps }> = ({
@@ -25,7 +37,7 @@ export const CardListItem: React.FC<{ ListItem: CardListItemProps }> = ({
     <CardListItemWrap>
       <Image
         src={`/images/${ListItem.imgSrc}`}
-        alt=""
+        alt="리액트 컴포넌트 그라데이션 UI 키트"
         width={200}
         height={200}
       />

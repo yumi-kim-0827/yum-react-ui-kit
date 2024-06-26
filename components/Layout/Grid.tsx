@@ -12,6 +12,11 @@ const Section = styled.section<GridColumnProps>`
   grid-template-columns: ${(props) => props.column || "1fr"};
   place-items: ${(props) => props.place || "start"};
   gap: 20px;
+
+  @media ${({ theme }) => theme.device.small} {
+    grid-template-columns: 1fr;
+    place-items: center;
+  }
 `;
 
 const Grid: React.FC<GridColumnProps & { children: React.ReactNode }> = ({

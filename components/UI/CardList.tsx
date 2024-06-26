@@ -12,6 +12,9 @@ const CardListWrap = styled.ul`
   border-radius: 10px;
   border: 1px solid #b9b0b8;
   background-color: #e9e5e9;
+  @media ${({ theme }) => theme.device.midium} {
+    flex-direction: column;
+  }
 `;
 
 const CardList: React.FC<CardListProps> = ({ ListData }) => {

@@ -4,11 +4,15 @@ import styled from "styled-components";
 
 const SearchFormWrap = styled.div`
   padding: 10px;
+  height: 65px;
   display: flex;
   align-items: center;
   border-radius: 10px;
   border: 1px solid #e2e2e2;
   background-color: #fff;
+  @media ${({ theme }) => theme.device.small} {
+    width: 100%;
+  }
 `;
 
 const InputFormWrap = styled.input`

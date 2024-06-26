@@ -49,7 +49,7 @@ const gallery = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Grid column="repeat(2, 1fr)">
+        <Grid column="1fr auto" place="end">
           <SearchForm />
           <Button onClick={handleAlert}>글쓰기</Button>
         </Grid>

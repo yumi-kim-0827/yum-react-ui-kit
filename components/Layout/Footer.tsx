@@ -6,6 +6,9 @@ import LinkIcon from "@/components/UI/LinkIcon";
 const FootContainer = styled.footer`
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
+  @media ${({ theme }) => theme.device.small} {
+    font-size: 14px;
+  }
 `;
 
 const Footer = () => {

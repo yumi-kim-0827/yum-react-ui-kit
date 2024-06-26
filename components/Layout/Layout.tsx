@@ -16,6 +16,9 @@ const Main = styled.main`
   @media ${({ theme }) => theme.device.midium} {
     width: 90%;
   }
+  @media ${({ theme }) => theme.device.small} {
+    padding: 10px;
+  }
 `;
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

@@ -14,6 +14,9 @@ const ArticleListWrap = styled.ul`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
+  @media ${({ theme }) => theme.device.small} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const ArticleList: React.FC<ArticleListProps> = ({ articleListData }) => {

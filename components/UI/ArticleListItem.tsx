@@ -14,6 +14,9 @@ const ArticleListItemWrap = styled.li`
   border-radius: 10px;
   border: 1px solid #b9b0b8;
   background-color: #e9e5e9;
+  &:hover {
+    border: 1px solid #452f42;
+  }
 `;
 
 export const ArticleListItem: React.FC<{ article: ArticleListItemProps }> = ({

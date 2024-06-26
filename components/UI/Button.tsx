@@ -8,8 +8,8 @@ interface ButtonProps {
 
 const ButtonWrap = styled.button`
   padding: 20px;
-  width: 100%;
   max-width: 200px;
+  height: 65px;
   border-radius: 10px;
   color: #fff;
   font-weight: bold;
@@ -20,6 +20,10 @@ const ButtonWrap = styled.button`
   }
   a {
     color: #fff;
+  }
+  @media ${({ theme }) => theme.device.small} {
+    display: block;
+    max-width: 100%;
   }
 `;
 

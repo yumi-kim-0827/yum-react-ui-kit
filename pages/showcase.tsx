@@ -88,7 +88,7 @@ const Showcase = () => {
           title="입력"
           text="입력폼 종류 : BaseButton, GradientButton"
         />
-        <Grid column={"repeat(2, 1fr)"} place="start">
+        <Grid column="repeat(2, 1fr)" place="start">
           <PlayGround colorHex={color.hex} subColorHex={color.hex}>
             <BaseInput
               r={color.rgb.r}

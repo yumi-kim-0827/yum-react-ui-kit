@@ -28,7 +28,7 @@ const HeadingTitleSub = styled.p`
     font-size: 20px;
   }
   @media ${({ theme }) => theme.device.small} {
-    font-size: 16px;
+    font-size: 14px;
   }
 `;
 
