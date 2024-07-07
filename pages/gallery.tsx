@@ -9,7 +9,7 @@ import SearchForm from "@/components/UI/SearchForm";
 import SubjectTitle from "@/components/UI/SubjectTitle";
 import ArticleList from "@/components/UI/ArticleList";
 
-const gallery = () => {
+const Gallery = () => {
   const router = useRouter();
   const navigateToWrite = () => {
     router.push("/write");
@@ -67,4 +67,4 @@ const gallery = () => {
   );
 };
 
-export default gallery;
+export default Gallery;

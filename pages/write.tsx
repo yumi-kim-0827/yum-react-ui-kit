@@ -6,7 +6,7 @@ import Grid from "@/components/Layout/Grid";
 import Editor from "@/components/UI/Editor";
 import Input from "@/components/UI/Input";
 
-const write = () => {
+const Write = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -34,11 +34,11 @@ const write = () => {
             value={title}
             onChange={onChangeTitle}
           />
-          <Editor value={content} onChange={onChangeContent} />
+          <Editor onChange={onChangeContent} />
         </Grid>
       </Layout>
     </>
   );
 };
 
-export default write;
+export default Write;
