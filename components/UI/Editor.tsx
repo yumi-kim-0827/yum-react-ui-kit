@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import dynamic from "next/dynamic";
+import React, { useMemo } from "react";
+import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import styled from "styled-components";
 
@@ -14,11 +14,29 @@ const EditorWrap = styled.div`
 `;
 
 const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
-  const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+  const modules = useMemo(() => {
+    return {
+      toolbar: {
+        container: [
+          [{ size: ["small", false, "large", "huge"] }],
+          [{ align: [] }],
+          ["bold", "italic", "underline", "strike"],
+          [{ list: "ordered" }, { list: "bullet" }],
+          [
+            {
+              color: [],
+            },
+            { background: [] },
+          ],
+        ],
+      },
+    };
+  }, []);
+
   return (
     <>
       <EditorWrap>
-        <ReactQuill value={value} onChange={onChange} />
+        <ReactQuill modules={modules} />
       </EditorWrap>
     </>
   );

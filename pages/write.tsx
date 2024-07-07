@@ -8,7 +8,15 @@ import Input from "@/components/UI/Input";
 
 const write = () => {
   const [title, setTitle] = useState("");
-  const [value, setValue] = useState("");
+  const [content, setContent] = useState("");
+
+  const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTitle(e.target.value);
+  };
+
+  const onChangeContent = (content: string) => {
+    setContent(content);
+  };
   return (
     <>
       <Head>
@@ -19,8 +27,14 @@ const write = () => {
       </Head>
       <Layout>
         <Grid column={"1fr"}>
-          <Input placeholder="제목을 적어주세요." />
-          <Editor value={value} onChange={setValue} />
+          {title}
+          {content}
+          <Input
+            placeholder="제목을 적어주세요."
+            value={title}
+            onChange={onChangeTitle}
+          />
+          <Editor value={content} onChange={onChangeContent} />
         </Grid>
       </Layout>
     </>
