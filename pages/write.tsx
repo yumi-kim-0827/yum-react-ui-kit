@@ -1,10 +1,15 @@
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 //Components
 import Layout from "@/components/Layout/Layout";
 import Grid from "@/components/Layout/Grid";
-import Editor from "@/components/UI/Editor";
 import Input from "@/components/UI/Input";
+
+const Editor = dynamic(() => import("@/components/UI/Editor"), {
+  ssr: false,
+  loading: () => <p>로딩 중</p>,
+});
 
 const Write = () => {
   const [title, setTitle] = useState("");
