@@ -16,8 +16,8 @@ const ArticleListWrap = styled.div`
 const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
   return (
     <ArticleListWrap>
-      {articles?.map((article, id) => {
-        return <ArticleListItem key={id} article={article} />;
+      {articles?.map((article) => {
+        return <ArticleListItem key={article._id} article={article} />;
       })}
     </ArticleListWrap>
   );

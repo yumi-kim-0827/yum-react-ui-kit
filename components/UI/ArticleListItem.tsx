@@ -1,12 +1,15 @@
 import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
+import { useRouter } from "next/router";
 
 export interface ArticleListItemProps {
   nickname?: string;
   title?: string;
-  text?: string;
+  content?: string;
+  createdAt?: string;
   updatedAt?: string;
+  _id?: string;
 }
 
 const ArticleListItemWrap = styled.div`
@@ -32,15 +35,19 @@ const ArticleListTitle = styled.h4`
 export const ArticleListItem: React.FC<{ article: ArticleListItemProps }> = ({
   article,
 }) => {
+  const router = useRouter();
+
   return (
-    <ArticleListItemWrap>
-      <Link href="/">
-        <ArticleListHead>
-          <p>{article.nickname}</p>
-          <p>{article.updatedAt}</p>
-        </ArticleListHead>
-        <ArticleListTitle>{article.title}</ArticleListTitle>
-      </Link>
+    <ArticleListItemWrap
+      onClick={() => {
+        router.push(`/gallery/${article._id}`);
+      }}
+    >
+      <ArticleListHead>
+        <p>{article.nickname}</p>
+        <p>{article.updatedAt}</p>
+      </ArticleListHead>
+      <ArticleListTitle>{article.title}</ArticleListTitle>
     </ArticleListItemWrap>
   );
 };

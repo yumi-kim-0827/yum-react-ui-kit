@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 interface SubjectTitleProps {
   title: string;
-  text: string;
+  text?: string;
 }
 
 const SubjectTitleBox = styled.div`

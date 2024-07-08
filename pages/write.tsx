@@ -41,8 +41,7 @@ const Write = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nickname, password, title, content }),
       });
-      const data = await res.json();
-      console.log(data);
+      alert("새로운 글이 등록되었습니다.");
     } catch (error) {
       console.error(error + "업로드 버튼 에러");
     }

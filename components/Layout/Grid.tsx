@@ -9,8 +9,8 @@ interface GridColumnProps {
 const Section = styled.section<GridColumnProps>`
   padding: 20px 0;
   display: grid;
-  grid-template-columns: ${(props) => props.column || "1fr"};
-  place-items: ${(props) => props.place || "start"};
+  grid-template-columns: ${({ column }) => column || "1fr"};
+  place-items: ${({ place }) => place || "start"};
   gap: 20px;
 
   @media ${({ theme }) => theme.device.small} {

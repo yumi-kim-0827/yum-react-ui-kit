@@ -25,6 +25,8 @@ const Gallery = () => {
   useEffect(() => {
     fetchArticles();
   }, []);
+
+  console.log(articles);
   return (
     <>
       <Head>
