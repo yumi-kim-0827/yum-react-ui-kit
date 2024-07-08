@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 //Components
@@ -14,34 +14,17 @@ const Gallery = () => {
   const navigateToWrite = () => {
     router.push("/write");
   };
+  const [articles, setArticles] = useState([]);
 
-  const dummyList = [
-    {
-      id: 1,
-      title: "제목1",
-      text: "제목1",
-      date: new Date().toLocaleDateString(),
-    },
-    {
-      id: 2,
-      title: "제목1",
-      text: "제목2",
-      date: new Date().toLocaleDateString(),
-    },
-    {
-      id: 3,
-      title: "제목1",
-      text: "제목3",
-      date: new Date().toLocaleDateString(),
-    },
-    {
-      id: 4,
-      title: "제목1",
-      text: "제목4",
-      date: new Date().toLocaleDateString(),
-    },
-  ];
+  const fetchArticles = async () => {
+    const res = await fetch("/api/article");
+    const data = await res.json();
+    setArticles(data);
+  };
 
+  useEffect(() => {
+    fetchArticles();
+  }, []);
   return (
     <>
       <Head>
@@ -60,7 +43,7 @@ const Gallery = () => {
             title="자유게시판"
             text="자유롭게 작업 이야기를 해요."
           />
-          <ArticleList articleListData={dummyList} />
+          <ArticleList articles={articles} />
         </Grid>
       </Layout>
     </>

@@ -3,14 +3,15 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export interface ArticleListItemProps {
-  id?: number;
+  nickname?: string;
   title?: string;
   text?: string;
-  date?: string;
+  updatedAt?: string;
 }
 
-const ArticleListItemWrap = styled.li`
+const ArticleListItemWrap = styled.div`
   padding: 10px;
+  margin: 0 0 20px 0;
   border-radius: 10px;
   border: 1px solid #b9b0b8;
   background-color: #e9e5e9;
@@ -19,16 +20,26 @@ const ArticleListItemWrap = styled.li`
   }
 `;
 
+const ArticleListHead = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ArticleListTitle = styled.h4`
+  font-weight: bold;
+`;
+
 export const ArticleListItem: React.FC<{ article: ArticleListItemProps }> = ({
   article,
 }) => {
   return (
     <ArticleListItemWrap>
       <Link href="/">
-        <p>{article.id}</p>
-        <p>{article.title}</p>
-        <p>{article.text}</p>
-        <p>{article.date}</p>
+        <ArticleListHead>
+          <p>{article.nickname}</p>
+          <p>{article.updatedAt}</p>
+        </ArticleListHead>
+        <ArticleListTitle>{article.title}</ArticleListTitle>
       </Link>
     </ArticleListItemWrap>
   );

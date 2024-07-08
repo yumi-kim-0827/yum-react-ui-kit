@@ -6,24 +6,18 @@ import {
 } from "@/components/UI/ArticleListItem";
 
 interface ArticleListProps {
-  articleListData?: ArticleListItemProps[];
+  articles?: ArticleListItemProps[];
 }
 
-const ArticleListWrap = styled.ul`
+const ArticleListWrap = styled.div`
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  @media ${({ theme }) => theme.device.small} {
-    grid-template-columns: 1fr;
-  }
 `;
 
-const ArticleList: React.FC<ArticleListProps> = ({ articleListData }) => {
+const ArticleList: React.FC<ArticleListProps> = ({ articles }) => {
   return (
     <ArticleListWrap>
-      {articleListData?.map((article) => {
-        return <ArticleListItem key={article.id} article={article} />;
+      {articles?.map((article, id) => {
+        return <ArticleListItem key={id} article={article} />;
       })}
     </ArticleListWrap>
   );

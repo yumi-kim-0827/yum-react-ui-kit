@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "mogoose": "^0.0.1-security",
+    "mongoose": "^8.4.5",
     "next": "14.2.4",
     "quill": "^2.0.2",
     "react": "^18",
