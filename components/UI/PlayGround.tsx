@@ -6,8 +6,8 @@ import { getCode } from "@/util/getCode";
 
 interface PlayGounrdProps {
   children: React.ReactNode;
-  colorHex: string;
-  subColorHex: string;
+  colorhex: string;
+  subcolorhex: string;
 }
 
 const PlayGroundContainer = styled.div`
@@ -30,8 +30,8 @@ const PlayGroundContent = styled.div`
 
 const PlayGround: React.FC<PlayGounrdProps> = ({
   children,
-  colorHex,
-  subColorHex,
+  colorhex,
+  subcolorhex,
 }) => {
   const [componentName, setComponentName] = useState<string>("");
 
@@ -54,7 +54,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const codeSnippet = getCode(componentName, colorHex, subColorHex);
+  const codeSnippet = getCode(componentName, colorhex, subcolorhex);
 
   const handlerCodeCopy: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (codeSnippet) {
@@ -72,7 +72,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
       <PlayGroundHead>코드</PlayGroundHead>
       <PlayGroundContent>
         <CodeSnipet>
-          <ButtonWithIcon imgSrc={"i_copy.svg"} onClick={handlerCodeCopy} />
+          <ButtonWithIcon imgSrc="i_copy.svg" onClick={handlerCodeCopy} />
           {codeSnippet}
         </CodeSnipet>
       </PlayGroundContent>

@@ -36,7 +36,7 @@ const Write = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await fetch("/api/article", {
+      const res = await fetch("/api/gallery", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nickname, password, title, content }),
@@ -56,7 +56,7 @@ const Write = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Grid column={"1fr"}>
+        <Grid $column={"1fr"}>
           {nickname}
           {password}
           {title}

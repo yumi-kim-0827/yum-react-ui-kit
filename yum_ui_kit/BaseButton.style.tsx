@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 interface ButtonProps {
-  r?: number;
-  g?: number;
-  b?: number;
-  a?: number;
+  colorhex: string;
 }
 
 export const BaseButton = styled.button<ButtonProps>`
@@ -13,12 +10,7 @@ export const BaseButton = styled.button<ButtonProps>`
   height: 60px;
   cursor: pointer;
   color: #fff;
-  background-color: rgba(
-    ${(props) => props.r || 0},
-    ${(props) => props.g || 0},
-    ${(props) => props.b || 0},
-    ${(props) => props.a || 1}
-  );
+  background-color: ${(props) => props.colorhex};
   font-weight: bold;
   border-radius: 200px;
   moz-transition: all 0.4s ease-in-out;

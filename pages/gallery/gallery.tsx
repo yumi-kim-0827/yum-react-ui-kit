@@ -12,12 +12,12 @@ import ArticleList from "@/components/UI/ArticleList";
 const Gallery = () => {
   const router = useRouter();
   const navigateToWrite = () => {
-    router.push("/write");
+    router.push("/gallery/write");
   };
   const [articles, setArticles] = useState([]);
 
   const fetchArticles = async () => {
-    const res = await fetch("/api/article");
+    const res = await fetch("/api/gallery");
     const data = await res.json();
     setArticles(data);
   };
@@ -36,11 +36,11 @@ const Gallery = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Grid column="1fr auto" place="end">
+        <Grid $column="1fr auto" $place="end">
           <SearchForm />
           <Button onClick={navigateToWrite}>글쓰기</Button>
         </Grid>
-        <Grid column={"1fr"}>
+        <Grid $column={"1fr"}>
           <SubjectTitle
             title="자유게시판"
             text="자유롭게 작업 이야기를 해요."

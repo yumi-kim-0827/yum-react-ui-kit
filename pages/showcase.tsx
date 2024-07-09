@@ -20,7 +20,7 @@ import { FileInput } from "@/yum_ui_kit/FileInput.style";
 const Showcase = () => {
   const [color, setColor] = useColor("#561ecb");
   const [secondColor, setSecondColor] = useColor("#28aefa");
-  console.log(color);
+  console.log(secondColor.hex);
   return (
     <>
       <Head>
@@ -30,7 +30,7 @@ const Showcase = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Grid column="repeat(2, 1fr)">
+        <Grid $column="repeat(2, 1fr)">
           <Card>
             <CardHead>1. 메인칼라를 고르세요</CardHead>
             <ColorPicker color={color} onChange={setColor} />
@@ -44,42 +44,17 @@ const Showcase = () => {
           title={"버튼"}
           text={"버튼 종류 : BaseButton, GradientButton"}
         />
-        <Grid column="repeat(2, 1fr)">
-          <PlayGround colorHex={color.hex} subColorHex={secondColor.hex}>
-            <BaseButton
-              r={color.rgb.r}
-              g={color.rgb.g}
-              b={color.rgb.b}
-              a={color.rgb.a}
-            >
-              베이스버튼
-            </BaseButton>
+        <Grid $column="repeat(2, 1fr)">
+          <PlayGround colorhex={color.hex} subcolorhex={secondColor.hex}>
+            <BaseButton colorhex={color.hex}>베이스버튼</BaseButton>
           </PlayGround>
-          <PlayGround colorHex={color.hex} subColorHex={secondColor.hex}>
-            <GradientButton
-              r={color.rgb.r}
-              g={color.rgb.g}
-              b={color.rgb.b}
-              a={color.rgb.a}
-              rSub={secondColor.rgb.r}
-              gSub={secondColor.rgb.g}
-              bSub={secondColor.rgb.b}
-              aSub={secondColor.rgb.a}
-            >
+          <PlayGround colorhex={color.hex} subcolorhex={secondColor.hex}>
+            <GradientButton colorhex={color.hex} subcolorhex={secondColor.hex}>
               그라데이션버튼
             </GradientButton>
           </PlayGround>
-          <PlayGround colorHex={color.hex} subColorHex={secondColor.hex}>
-            <OutlineButton
-              r={color.rgb.r}
-              g={color.rgb.g}
-              b={color.rgb.b}
-              a={color.rgb.a}
-              rSub={secondColor.rgb.r}
-              gSub={secondColor.rgb.g}
-              bSub={secondColor.rgb.b}
-              aSub={secondColor.rgb.a}
-            >
+          <PlayGround colorhex={color.hex} subcolorhex={secondColor.hex}>
+            <OutlineButton colorhex={color.hex} subcolorhex={secondColor.hex}>
               아웃라인 버튼
             </OutlineButton>
           </PlayGround>
@@ -88,35 +63,17 @@ const Showcase = () => {
           title="입력"
           text="입력폼 종류 : BaseButton, GradientButton"
         />
-        <Grid column="repeat(2, 1fr)" place="start">
-          <PlayGround colorHex={color.hex} subColorHex={color.hex}>
-            <BaseInput
-              r={color.rgb.r}
-              g={color.rgb.g}
-              b={color.rgb.b}
-              a={color.rgb.a}
-              placeholder="입력해주세요."
-            />
+        <Grid $column="repeat(2, 1fr)" $place="start">
+          <PlayGround colorhex={color.hex} subcolorhex={color.hex}>
+            <BaseInput colorhex={color.hex} placeholder="입력해주세요." />
           </PlayGround>
-          <PlayGround colorHex={color.hex} subColorHex={color.hex}>
-            <BaseTextArea
-              r={color.rgb.r}
-              g={color.rgb.g}
-              b={color.rgb.b}
-              a={color.rgb.a}
-              placeholder="입력해주세요."
-            />
+          <PlayGround colorhex={color.hex} subcolorhex={color.hex}>
+            <BaseTextArea colorhex={color.hex} placeholder="입력해주세요." />
           </PlayGround>
         </Grid>
-        <Grid column={"repeat(2, 1fr)"} place="start">
-          <PlayGround colorHex={color.hex} subColorHex={color.hex}>
-            <FileInput
-              r={color.rgb.r}
-              g={color.rgb.g}
-              b={color.rgb.b}
-              a={color.rgb.a}
-              placeholder="입력해주세요."
-            />
+        <Grid $column={"repeat(2, 1fr)"} $place="start">
+          <PlayGround colorhex={color.hex} subcolorhex={color.hex}>
+            <FileInput colorhex={color.hex} placeholder="입력해주세요." />
           </PlayGround>
         </Grid>
       </Layout>

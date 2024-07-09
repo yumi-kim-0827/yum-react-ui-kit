@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components";
 
 interface GridColumnProps {
-  column: string;
-  place?: string;
+  $column: string;
+  $place?: string;
 }
 
 const Section = styled.section<GridColumnProps>`
   padding: 20px 0;
   display: grid;
-  grid-template-columns: ${({ column }) => column || "1fr"};
-  place-items: ${({ place }) => place || "start"};
+  grid-template-columns: ${({ $column }) => $column || "1fr"};
+  place-items: ${({ $place }) => $place || "start"};
   gap: 20px;
 
   @media ${({ theme }) => theme.device.small} {
@@ -20,12 +20,12 @@ const Section = styled.section<GridColumnProps>`
 `;
 
 const Grid: React.FC<GridColumnProps & { children: React.ReactNode }> = ({
-  column,
-  place,
+  $column,
+  $place,
   children,
 }) => {
   return (
-    <Section column={column} place={place}>
+    <Section $column={$column} $place={$place}>
       {children}
     </Section>
   );
