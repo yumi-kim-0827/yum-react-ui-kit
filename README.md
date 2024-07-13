@@ -6,7 +6,7 @@
 
 <!--프로젝트 대문 이미지-->
 
-https://yum-react-ui-kit-2c9n.vercel.app/showcase
+https://yum-react-ui-kit.vercel.app/
 ![sc1](https://github.com/yumi-kim-0827/yum-react-ui-kit/assets/116349476/45261959-fdbe-4937-a5da-b7a7c1a6cea6)
 ![dsa](https://github.com/yumi-kim-0827/yum-react-ui-kit/assets/116349476/f5887533-30a8-4381-acf6-04a989812119)
 
