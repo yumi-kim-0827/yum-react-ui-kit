@@ -36,7 +36,7 @@ const Write = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await fetch("/api/gallery", {
+      const res = await fetch("/api/gallery/article", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nickname, password, title, content }),
