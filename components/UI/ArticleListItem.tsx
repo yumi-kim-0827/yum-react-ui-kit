@@ -20,6 +20,7 @@ const ArticleListItemWrap = styled.div`
   background-color: #e9e5e9;
   &:hover {
     border: 1px solid #452f42;
+    cursor: pointer;
   }
 `;
 

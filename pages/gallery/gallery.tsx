@@ -17,7 +17,7 @@ const Gallery = () => {
   const [articles, setArticles] = useState([]);
 
   const fetchArticles = async () => {
-    const res = await fetch("/api/gallery");
+    const res = await fetch("/api/gallery/article");
     const data = await res.json();
     setArticles(data);
   };
@@ -26,7 +26,6 @@ const Gallery = () => {
     fetchArticles();
   }, []);
 
-  console.log(articles);
   return (
     <>
       <Head>

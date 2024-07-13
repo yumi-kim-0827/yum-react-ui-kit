@@ -39,11 +39,13 @@ const Article = () => {
     <>
       <Layout>
         <Grid $column="1fr">
-          <SubjectTitle title={"자유게시판"} />
-          <p>제목 : {article.title}</p>
-          <p>닉네임 : {article.nickname}</p>
-          <p>업데이트 날짜 : {article.title}</p>
-          <p>본문 : {article.content}</p>
+          <SubjectTitle title="자유게시판" />
+          <p>{article.nickname}</p>
+          <span>
+            업데이트 날짜 {new Date(article.updatedAt).toLocaleDateString()}
+          </span>
+          <h2>{article.title}</h2>
+          <strong>{article.content}</strong>
         </Grid>
       </Layout>
     </>
