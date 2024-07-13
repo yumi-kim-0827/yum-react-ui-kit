@@ -16,7 +16,7 @@
 # production
 /build
 /sourceCode/
-/yum_ui_kit/
+# /yum_ui_kit/
 
 # misc
 .DS_Store
