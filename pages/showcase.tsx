@@ -20,7 +20,7 @@ import { FileInput } from "@/yum_ui_kit/FileInput.style";
 const Showcase = () => {
   const [color, setColor] = useColor("#561ecb");
   const [secondColor, setSecondColor] = useColor("#28aefa");
-  console.log(secondColor.hex);
+
   return (
     <>
       <Head>
