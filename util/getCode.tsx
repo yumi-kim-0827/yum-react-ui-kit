@@ -1,7 +1,7 @@
 export const getCode = (
   componentName: string,
-  colorHex: string,
-  subColorHex: string
+  colorhex: string,
+  subcolorhex: string
 ) => {
   switch (componentName) {
     //BaseButton
@@ -21,7 +21,7 @@ export const BaseButton = styled.button\`
   -o-transition: all 0.4s ease-in-out;
   -webkit-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
-  background-color: ${colorHex};
+  background-color: ${colorhex};
   &:hover {
     moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
@@ -52,8 +52,8 @@ export const GradientButton = styled.button\`
   transition: all 0.4s ease-in-out;
   background-image: linear-gradient(
     to right,
-    ${colorHex},
-    ${subColorHex}
+    ${colorhex},
+    ${subcolorhex}
   );
   background-size: 150% 100%;
   &:hover {
@@ -88,8 +88,8 @@ export const GradientButton = styled.button\`
   background: linear-gradient(#fff, #fff) padding-box,
   linear-gradient(
   60deg,
-  ${colorHex},
-  ${subColorHex}
+  ${colorhex},
+  ${subcolorhex}
     )
   border-box;
   &:hover {
@@ -113,9 +113,9 @@ export const BaseInput = styled.input\`
   padding: 10px;
   width: 100%;
   height: 60px;
-  border: 1px solid ${colorHex};
+  border: 1px solid ${colorhex};
   &:focus {
-  border-bottom: 3px solid ${colorHex};
+  border-bottom: 3px solid ${colorhex};
   }
 \`;
     `;
@@ -128,9 +128,9 @@ export const BaseTextArea = styled.textarea\`
   padding: 10px;
   width: 100%;
   height: 100px;
-  border: 1px solid ${colorHex};
+  border: 1px solid ${colorhex};
   &:focus {
-    border-bottom: 3px solid ${colorHex};
+    border-bottom: 3px solid ${colorhex};
   }
   resize: none;
   \`;
@@ -146,7 +146,7 @@ export const FileInput = styled.input.attrs({
 })\`
   padding: 10px;
   background-color: #fff;
-  border: 1px solid ${colorHex};
+  border: 1px solid ${colorhex};
   input {
     display: none;
   }

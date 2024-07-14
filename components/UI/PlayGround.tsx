@@ -39,8 +39,9 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
     if (React.isValidElement(children)) {
       const childType = children.type as any;
       if (childType?.styledComponentId) {
-        const cutStringIdx = childType.styledComponentId.indexOf("style");
-        if (cutStringIdx !== -1) {
+        const cutStringIdx = childType.styledComponentId.indexOf("-");
+        console.log(childType?.styledComponentId);
+        if (cutStringIdx !== 0) {
           return childType.styledComponentId.slice(0, cutStringIdx);
         }
       }
