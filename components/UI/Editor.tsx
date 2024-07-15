@@ -4,6 +4,7 @@ import "react-quill/dist/quill.snow.css";
 import styled from "styled-components";
 
 interface EditorProps {
+  value: string;
   onChange: (content: string) => void;
 }
 
@@ -12,7 +13,7 @@ const EditorWrap = styled.div`
   background-color: #fff;
 `;
 
-const Editor: React.FC<EditorProps> = ({ onChange }) => {
+const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
   const modules = useMemo(() => {
     return {
       toolbar: {
@@ -35,7 +36,7 @@ const Editor: React.FC<EditorProps> = ({ onChange }) => {
   return (
     <>
       <EditorWrap>
-        <ReactQuill modules={modules} onChange={onChange} />
+        <ReactQuill value={value} modules={modules} onChange={onChange} />
       </EditorWrap>
     </>
   );

@@ -9,6 +9,7 @@ interface ButtonProps {
 const ButtonWrap = styled.button`
   padding: 20px;
   max-width: 200px;
+  width: 100%;
   height: 65px;
   border-radius: 10px;
   color: #fff;

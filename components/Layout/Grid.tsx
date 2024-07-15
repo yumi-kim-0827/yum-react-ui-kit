@@ -6,7 +6,7 @@ interface GridColumnProps {
   $place?: string;
 }
 
-const Section = styled.section<GridColumnProps>`
+const GridWrap = styled.div<GridColumnProps>`
   padding: 20px 0;
   display: grid;
   grid-template-columns: ${({ $column }) => $column || "1fr"};
@@ -25,9 +25,9 @@ const Grid: React.FC<GridColumnProps & { children: React.ReactNode }> = ({
   children,
 }) => {
   return (
-    <Section $column={$column} $place={$place}>
+    <GridWrap $column={$column} $place={$place}>
       {children}
-    </Section>
+    </GridWrap>
   );
 };
 

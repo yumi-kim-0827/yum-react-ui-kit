@@ -7,6 +7,7 @@ import Grid from "@/components/Layout/Grid";
 import SubjectTitle from "@/components/UI/SubjectTitle";
 import Input from "@/components/UI/Input";
 import Button from "@/components/UI/Button";
+import Modal from "@/components/UI/Modal";
 
 const Editor = dynamic(() => import("@/components/UI/Editor"), {
   ssr: false,
@@ -16,6 +17,7 @@ const Editor = dynamic(() => import("@/components/UI/Editor"), {
 const Article = () => {
   const { id } = useRouter().query;
   const router = useRouter();
+  //해당 article 정보
   const [article, setArticle] = useState({
     content: "",
     createdAt: "",
@@ -25,11 +27,15 @@ const Article = () => {
     updatedAt: "",
     __v: 0,
     _id: "",
-  }); //해당 게시글 상태관리
+  });
+  //수정 에디터 오픈 여부 상태관리
   const [onEditor, setOnEditor] = useState(false);
-  // const [title, setTitle] = useState(`${article.title}`);
-  // const [content, setContent] = useState(`${article.content}`);
+  //수정할 때 인증을 위한 모달 비밀번호 입력 상태관리
+  const [onModal, setOnModal] = useState(false);
+  //수정할 때 인증을 위한 모달 비밀번호 입력 상태관리
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
+  // 해당 article 조회
   const fetchThisArticle = async () => {
     if (id) {
       try {
@@ -46,18 +52,7 @@ const Article = () => {
     fetchThisArticle();
   }, [id]);
 
-  const handleOnEditor = () => {
-    setOnEditor(!onEditor);
-  };
-
-  const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setArticle((prev) => ({ ...prev, title: e.target.value }));
-  };
-
-  const onChangeContent = (content: string) => {
-    setArticle((prev) => ({ ...prev, content: content }));
-  };
-
+  // 해당 article 수정
   const handleSubmit = async () => {
     try {
       const res = await fetch(`/api/gallery/${id}`, {
@@ -74,26 +69,58 @@ const Article = () => {
     }
   };
 
+  // 해당 article 삭제
+
+  const handleOnEditor = () => {
+    if (article.password === passwordConfirm) {
+      setOnModal(false);
+      setOnEditor(true);
+    } else {
+      alert("비밀번호가 일치하지 않습니다.");
+    }
+  };
+
+  const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setArticle((prev) => ({ ...prev, title: e.target.value }));
+  };
+
+  const onChangeContent = (content: string) => {
+    setArticle((prev) => ({ ...prev, content: content }));
+  };
+
   const navigateToGallery = () => {
     router.push("/gallery/gallery");
+  };
+
+  const handleOpenModal = () => {
+    setOnModal(!onModal);
+  };
+
+  const onChangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPasswordConfirm(e.target.value);
   };
 
   return (
     <>
       <Layout>
         <Grid $column="1fr auto" $place="end">
-          <Button onClick={handleOnEditor}>글 수정열기</Button>
-          {/* <Button>삭제하기</Button> */}
+          {/* 수정 에디터 여부에 따라 렌더링 */}
+          {onEditor ? null : (
+            <>
+              <Button onClick={handleOpenModal}>글 수정열기</Button>
+              <Button>삭제하기</Button>
+            </>
+          )}
         </Grid>
-        <SubjectTitle title="자유게시판" />
         <Grid $column="1fr">
+          {/* 비밀번호 확인되면 수정 에디터가 보임 */}
           {!onEditor ? (
             <>
               <p>{article.nickname}</p>
               <span>
                 업데이트 날짜 {new Date(article.updatedAt).toLocaleDateString()}
               </span>
-              <h2>{article.title}</h2>
+              <SubjectTitle title={article.title} />
               <div dangerouslySetInnerHTML={{ __html: article.content }} />
             </>
           ) : (
@@ -102,15 +129,37 @@ const Article = () => {
                 placeholder="제목을 적어주세요."
                 onChange={onChangeTitle}
               />
-              <Editor onChange={onChangeContent} />
-              <Button onClick={handleSubmit}>수정된 글 업로드</Button>
+              <Editor onChange={onChangeContent} value={article.content} />
+              <Grid $column="1fr 1fr auto" $place="end">
+                <Button onClick={handleSubmit}>수정된 글 업로드</Button>
+                <Button
+                  onClick={() => {
+                    setOnEditor(false);
+                  }}
+                >
+                  취소
+                </Button>
+                <Button onClick={navigateToGallery}>목록으로</Button>
+              </Grid>
             </>
           )}
         </Grid>
-        <Grid $column="1fr" $place="end">
-          <Button onClick={navigateToGallery}>목록으로</Button>
-        </Grid>
       </Layout>
+      {/* 비밀번호 확인 모달 */}
+      {onModal ? (
+        <Modal onClick={handleOpenModal}>
+          <Input
+            placeholder="비밀번호를 적어주세요."
+            onChange={onChangePassword}
+          />
+          <Grid $column="1fr 1fr" $place="center">
+            <Button onClick={handleOnEditor}>확인</Button>
+            <Button onClick={handleOpenModal}>취소</Button>
+          </Grid>
+        </Modal>
+      ) : (
+        <></>
+      )}
     </>
   );
 };

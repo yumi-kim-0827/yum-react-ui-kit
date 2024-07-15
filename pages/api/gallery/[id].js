@@ -30,7 +30,9 @@ export default async function handler(req, res) {
       });
 
       return res.status(200).json(updatedArticle);
-    } catch (error) {}
+    } catch (error) {
+      return res.status(500).json({ message: "Internal Server Error", id });
+    }
   } else if (req.method === "DELETE") {
   }
 }
