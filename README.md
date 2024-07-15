@@ -1,6 +1,7 @@
 # 💡React Component Gradient UI kit
 
 본 프로젝트는 React의 주요 장점 중 하나인 코드 스플리팅과 컴포넌트 분리를 통해 효율성을 극대화한 리액트 컴포넌트 KIT 입니다. 또한 CSS, SCSS와 같은 전통적인 스타일 시트 언어의 사용을 최소화하고, 'styled-components'를 활용하여 UI 렌더링을 구현하였습니다.
+mobgodb 데이터베이스 서비스를 활용하여 RESTful API기반 HTTP통신을 통해 기본적인 CRUD 게시판을 구현하였습니다.
 
 # 🖥️View web site
 
@@ -103,6 +104,8 @@ npm install
 # [7] License
 
 MIT 라이센스
+# STATE.
+© 2024 YUMEE KIM. Published with GitHub Pages
 
 <!--Url for Badges-->
 
@@ -125,3 +128,4 @@ MIT 라이센스
 [license-url]: LICENSE.md
 [contribution-url]: CONTRIBUTION.md
 [readme-eng-url]: ../README.md
+
