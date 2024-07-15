@@ -36,7 +36,7 @@ const Article = () => {
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   // 해당 article 조회
-  const fetchThisArticle = async () => {
+  const fetchArticle = async () => {
     if (id) {
       try {
         const res = await fetch(`/api/gallery/${id}`);
@@ -49,11 +49,11 @@ const Article = () => {
   };
 
   useEffect(() => {
-    fetchThisArticle();
+    fetchArticle();
   }, [id]);
 
   // 해당 article 수정
-  const handleSubmit = async () => {
+  const fetchArticleUpdate = async () => {
     try {
       const res = await fetch(`/api/gallery/${id}`, {
         method: "PUT",
@@ -70,6 +70,18 @@ const Article = () => {
   };
 
   // 해당 article 삭제
+  const fetchArticleDelete = async () => {
+    try {
+      const res = await fetch(`/api/gallery/${id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      alert("해당 게시글이 삭제되었습니다.");
+      router.push("/gallery/gallery");
+    } catch (error) {
+      console.log("글삭제 에러", error);
+    }
+  };
 
   const handleOnEditor = () => {
     if (article.password === passwordConfirm) {
@@ -108,7 +120,7 @@ const Article = () => {
           {onEditor ? null : (
             <>
               <Button onClick={handleOpenModal}>글 수정열기</Button>
-              <Button>삭제하기</Button>
+              <Button onClick={fetchArticleDelete}>삭제하기</Button>
             </>
           )}
         </Grid>
@@ -116,10 +128,13 @@ const Article = () => {
           {/* 비밀번호 확인되면 수정 에디터가 보임 */}
           {!onEditor ? (
             <>
-              <p>{article.nickname}</p>
-              <span>
-                업데이트 날짜 {new Date(article.updatedAt).toLocaleDateString()}
-              </span>
+              <Grid $column="auto 1fr">
+                <p>닉네임 : {article.nickname} |</p>
+                <span>
+                  업데이트 날짜 :
+                  {new Date(article.updatedAt).toLocaleDateString()}
+                </span>
+              </Grid>
               <SubjectTitle title={article.title} />
               <div dangerouslySetInnerHTML={{ __html: article.content }} />
             </>
@@ -131,7 +146,7 @@ const Article = () => {
               />
               <Editor onChange={onChangeContent} value={article.content} />
               <Grid $column="1fr 1fr auto" $place="end">
-                <Button onClick={handleSubmit}>수정된 글 업로드</Button>
+                <Button onClick={fetchArticleUpdate}>수정된 글 업로드</Button>
                 <Button
                   onClick={() => {
                     setOnEditor(false);

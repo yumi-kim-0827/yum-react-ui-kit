@@ -18,12 +18,7 @@ const LinkIcon: React.FC<LinkIconProps> = ({ imgSrc, href }) => {
   return (
     <LickIconWrap>
       <Link href={href}>
-        <Image
-          fill
-          src={`/images/${imgSrc}`}
-          alt="github icon"
-          style={{ objectFit: "cover" }}
-        />
+        <Image fill src={`/images/${imgSrc}`} alt="github icon" />
       </Link>
     </LickIconWrap>
   );

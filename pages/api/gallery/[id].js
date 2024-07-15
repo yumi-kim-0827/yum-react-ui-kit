@@ -34,5 +34,14 @@ export default async function handler(req, res) {
       return res.status(500).json({ message: "Internal Server Error", id });
     }
   } else if (req.method === "DELETE") {
+    try {
+      const deleteArticle = await Article.findByIdAndDelete(id);
+      if (!deleteArticle) {
+        return res.status(404).json({ message: "삭제할 article이 없습니다." });
+      }
+      return res.status(200).json(deleteArticle);
+    } catch (error) {
+      return res.status(500).json({ message: "Internal Server Error" });
+    }
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import dynamic from "next/dynamic";
 import Head from "next/head";
+import { useRouter } from "next/router";
 //Components
 import Layout from "@/components/Layout/Layout";
 import Grid from "@/components/Layout/Grid";
@@ -13,6 +14,7 @@ const Editor = dynamic(() => import("@/components/UI/Editor"), {
 });
 
 const Write = () => {
+  const router = useRouter();
   const [nickname, setNickName] = useState("anonymous");
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
@@ -42,6 +44,7 @@ const Write = () => {
         body: JSON.stringify({ nickname, password, title, content }),
       });
       alert("새로운 글이 등록되었습니다.");
+      router.push("/gallery/gallery");
     } catch (error) {
       console.error(error + "업로드 버튼 에러");
     }
@@ -56,11 +59,7 @@ const Write = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-        <Grid $column={"1fr"}>
-          {nickname}
-          {password}
-          {title}
-          {content}
+        <Grid $column="1fr">
           <Input
             placeholder="닉네임 적어주세요"
             value={nickname}
@@ -76,7 +75,7 @@ const Write = () => {
             value={title}
             onChange={onChangeTitle}
           />
-          <Editor onChange={onChangeContent} />
+          <Editor onChange={onChangeContent} value={content} />
           <Button onClick={handleSubmit}>업로드</Button>
         </Grid>
       </Layout>

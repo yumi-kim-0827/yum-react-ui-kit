@@ -4,12 +4,12 @@ import styled from "styled-components";
 import { useRouter } from "next/router";
 
 export interface ArticleListItemProps {
-  nickname?: string;
-  title?: string;
-  content?: string;
-  createdAt?: string;
-  updatedAt?: string;
-  _id?: string;
+  nickname: string;
+  title: string;
+  content: string;
+  createdAt: string;
+  updatedAt: string;
+  _id: string;
 }
 
 const ArticleListItemWrap = styled.div`
@@ -46,7 +46,7 @@ export const ArticleListItem: React.FC<{ article: ArticleListItemProps }> = ({
     >
       <ArticleListHead>
         <p>{article.nickname}</p>
-        <p>{article.updatedAt}</p>
+        <p>{new Date(article.updatedAt).toLocaleDateString()}</p>
       </ArticleListHead>
       <ArticleListTitle>{article.title}</ArticleListTitle>
     </ArticleListItemWrap>
