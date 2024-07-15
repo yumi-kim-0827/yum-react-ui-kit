@@ -1,8 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import dynamic from "next/dynamic";
 import CodeSnipet from "@/components/UI/CodeSnipet";
 import ButtonWithIcon from "@/components/UI/ButtonWithIcon";
 import { getCode } from "@/util/getCode";
+
+const DynamicCodeSnipet = dynamic(() => import("@/components/UI/CodeSnipet"), {
+  ssr: false,
+});
 
 interface PlayGounrdProps {
   children: React.ReactNode;
@@ -72,10 +77,10 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
       <PlayGroundContent>{children}</PlayGroundContent>
       <PlayGroundHead>코드</PlayGroundHead>
       <PlayGroundContent>
-        <CodeSnipet>
+        <DynamicCodeSnipet>
           <ButtonWithIcon imgSrc="i_copy.svg" onClick={handlerCodeCopy} />
           {codeSnippet}
-        </CodeSnipet>
+        </DynamicCodeSnipet>
       </PlayGroundContent>
     </PlayGroundContainer>
   );
