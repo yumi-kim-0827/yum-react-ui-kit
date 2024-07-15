@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import dynamic from "next/dynamic";
 import CodeSnipet from "@/components/UI/CodeSnipet";
 import ButtonWithIcon from "@/components/UI/ButtonWithIcon";
 import { getCode } from "@/util/getCode";
-
-const DynamicCodeSnipet = dynamic(() => import("@/components/UI/CodeSnipet"), {
-  ssr: false,
-});
 
 interface PlayGounrdProps {
   children: React.ReactNode;
@@ -39,7 +34,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
   subcolorhex,
 }) => {
   const [componentName, setComponentName] = useState<string>("");
-  console.log("컴포넌트네임", componentName);
+
   const getComponentName = () => {
     if (React.isValidElement(children)) {
       const childType = children.type as any;
@@ -77,10 +72,10 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
       <PlayGroundContent>{children}</PlayGroundContent>
       <PlayGroundHead>코드</PlayGroundHead>
       <PlayGroundContent>
-        <DynamicCodeSnipet>
+        <CodeSnipet>
           <ButtonWithIcon imgSrc="i_copy.svg" onClick={handlerCodeCopy} />
           {codeSnippet}
-        </DynamicCodeSnipet>
+        </CodeSnipet>
       </PlayGroundContent>
     </PlayGroundContainer>
   );
