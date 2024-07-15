@@ -39,7 +39,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
   subcolorhex,
 }) => {
   const [componentName, setComponentName] = useState<string>("");
-
+  console.log("컴포넌트네임", componentName);
   const getComponentName = () => {
     if (React.isValidElement(children)) {
       const childType = children.type as any;
