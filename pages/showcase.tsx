@@ -1,25 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import Head from "next/head";
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/css";
+//Utils
+import { renderPlayground } from "@/util/getRenderPlayground";
+//Contexts
+import { MenuContext } from "@/contexts/MenuContext";
 //Components
-import Layout from "@/components/Layout/Layout";
+import Main from "@/components/Layout/Main";
 import Grid from "@/components/Layout/Grid";
+import SideNav from "@/components/Layout/SideNav";
 import SubjectTitle from "@/components/UI/SubjectTitle";
 import Card from "@/components/UI/Card";
 import CardHead from "@/components/UI/CardHead";
-import PlayGround from "@/components/UI/PlayGround";
-//YUM UI
-import { BaseButton } from "@/yum_ui_kit/BaseButton.style";
-import { GradientButton } from "@/yum_ui_kit/GradientButton.style";
-import { OutlineButton } from "@/yum_ui_kit/OutlineButton.style";
-import { BaseInput } from "@/yum_ui_kit/BaseInput.style";
-import { BaseTextArea } from "@/yum_ui_kit/BaseTextArea.style";
-import { FileInput } from "@/yum_ui_kit/FileInput.style";
 
 const Showcase = () => {
-  const [color, setColor] = useColor("#561ecb");
+  const [color, setColor] = useColor("#fff310");
   const [secondColor, setSecondColor] = useColor("#28aefa");
+
+  const { menuState } = useContext(MenuContext);
 
   return (
     <>
@@ -29,54 +28,29 @@ const Showcase = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Grid $column="repeat(2, 1fr)">
-          <Card>
-            <CardHead>1. 메인칼라를 고르세요</CardHead>
-            <ColorPicker color={color} onChange={setColor} />
-          </Card>
-          <Card>
-            <CardHead>2. 서브칼라를 고르세요</CardHead>
-            <ColorPicker color={secondColor} onChange={setSecondColor} />
-          </Card>
-        </Grid>
-        <SubjectTitle
-          title={"버튼"}
-          text={"버튼 종류 : BaseButton, GradientButton"}
-        />
-        <Grid $column="repeat(2, 1fr)">
-          <PlayGround colorhex={color.hex} subcolorhex={secondColor.hex}>
-            <BaseButton colorhex={color.hex}>베이스버튼</BaseButton>
-          </PlayGround>
-          <PlayGround colorhex={color.hex} subcolorhex={secondColor.hex}>
-            <GradientButton colorhex={color.hex} subcolorhex={secondColor.hex}>
-              그라데이션버튼
-            </GradientButton>
-          </PlayGround>
-          <PlayGround colorhex={color.hex} subcolorhex={secondColor.hex}>
-            <OutlineButton colorhex={color.hex} subcolorhex={secondColor.hex}>
-              아웃라인 버튼
-            </OutlineButton>
-          </PlayGround>
-        </Grid>
-        <SubjectTitle
-          title="입력"
-          text="입력폼 종류 : BaseButton, GradientButton"
-        />
-        <Grid $column="repeat(2, 1fr)" $place="start">
-          <PlayGround colorhex={color.hex} subcolorhex={color.hex}>
-            <BaseInput colorhex={color.hex} placeholder="입력해주세요." />
-          </PlayGround>
-          <PlayGround colorhex={color.hex} subcolorhex={color.hex}>
-            <BaseTextArea colorhex={color.hex} placeholder="입력해주세요." />
-          </PlayGround>
-        </Grid>
-        <Grid $column={"repeat(2, 1fr)"} $place="start">
-          <PlayGround colorhex={color.hex} subcolorhex={color.hex}>
-            <FileInput colorhex={color.hex} placeholder="입력해주세요." />
-          </PlayGround>
-        </Grid>
-      </Layout>
+      <Grid $column="1fr 3fr" $place="stretch">
+        <SideNav />
+        <Main>
+          <Grid $column="repeat(2, 1fr)">
+            <Card>
+              <CardHead>1. 메인칼라를 고르세요</CardHead>
+              <ColorPicker color={color} onChange={setColor} />
+            </Card>
+            <Card>
+              <CardHead>2. 서브칼라를 고르세요</CardHead>
+              <ColorPicker color={secondColor} onChange={setSecondColor} />
+            </Card>
+          </Grid>
+          <SubjectTitle title={menuState.toUpperCase()} />
+          <Grid $column="repeat(2, 1fr)">
+            {renderPlayground({
+              menuState,
+              colorHex: color.hex,
+              secondColorHex: secondColor.hex,
+            })}
+          </Grid>
+        </Main>
+      </Grid>
     </>
   );
 };

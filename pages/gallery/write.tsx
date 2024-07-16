@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
 //Components
-import Layout from "@/components/Layout/Layout";
+import Main from "@/components/Layout/Main";
 import Grid from "@/components/Layout/Grid";
 import Input from "@/components/UI/Input";
 import Button from "@/components/UI/Button";
@@ -58,27 +58,29 @@ const Write = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Grid $column="1fr">
-          <Input
-            placeholder="닉네임 적어주세요"
-            value={nickname}
-            onChange={onChangeNickName}
-          />
-          <Input
-            placeholder="비밀번호를 적어주세요"
-            value={password}
-            onChange={onChangePassword}
-          />
-          <Input
-            placeholder="제목을 적어주세요."
-            value={title}
-            onChange={onChangeTitle}
-          />
-          <Editor onChange={onChangeContent} value={content} />
-          <Button onClick={handleSubmit}>업로드</Button>
-        </Grid>
-      </Layout>
+      <Grid $column="1fr" $place="center">
+        <Main>
+          <Grid $column="1fr">
+            <Input
+              placeholder="닉네임 적어주세요"
+              value={nickname}
+              onChange={onChangeNickName}
+            />
+            <Input
+              placeholder="비밀번호를 적어주세요"
+              value={password}
+              onChange={onChangePassword}
+            />
+            <Input
+              placeholder="제목을 적어주세요."
+              value={title}
+              onChange={onChangeTitle}
+            />
+            <Editor onChange={onChangeContent} value={content} />
+            <Button onClick={handleSubmit}>업로드</Button>
+          </Grid>
+        </Main>
+      </Grid>
     </>
   );
 };

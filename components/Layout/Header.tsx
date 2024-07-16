@@ -10,7 +10,6 @@ const HeaderContainer = styled.header`
 const HeaderWrap = styled.div`
   margin: 0 auto;
   width: 100%;
-  max-width: 1200px;
 `;
 const MenuNav = styled.nav`
   ul {
@@ -38,6 +37,9 @@ const Header = () => {
             </li>
             <li>
               <Link href="/gallery/gallery">Gallery</Link>
+            </li>
+            <li>
+              <Link href="/gallery/gallery">Chart</Link>
             </li>
           </ul>
         </MenuNav>

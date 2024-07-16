@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 //Components
-import Layout from "@/components/Layout/Layout";
+import Main from "@/components/Layout/Main";
 import Grid from "@/components/Layout/Grid";
 import Button from "@/components/UI/Button";
 import SearchForm from "@/components/UI/SearchForm";
@@ -34,19 +34,18 @@ const Gallery = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Grid $column="1fr auto" $place="end">
-          <SearchForm />
-          <Button onClick={navigateToWrite}>글쓰기</Button>
-        </Grid>
-        <Grid $column={"1fr"}>
-          <SubjectTitle
-            title="자유게시판"
-            text="자유롭게 작업 이야기를 해요."
-          />
-          <ArticleList articles={articles} />
-        </Grid>
-      </Layout>
+      <Grid $column="1fr" $place="center">
+        <Main>
+          <Grid $column="1fr auto" $place="end">
+            <SearchForm />
+            <Button onClick={navigateToWrite}>글쓰기</Button>
+          </Grid>
+          <Grid $column="1fr">
+            <SubjectTitle title="자유게시판" text="자유롭게 이야기를 해요." />
+            <ArticleList articles={articles} />
+          </Grid>
+        </Main>
+      </Grid>
     </>
   );
 };

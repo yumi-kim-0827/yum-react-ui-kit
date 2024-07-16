@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/router";
 //Components
-import Layout from "@/components/Layout/Layout";
+import Main from "@/components/Layout/Main";
 import Grid from "@/components/Layout/Grid";
 import SubjectTitle from "@/components/UI/SubjectTitle";
 import Input from "@/components/UI/Input";
@@ -114,52 +114,54 @@ const Article = () => {
 
   return (
     <>
-      <Layout>
-        <Grid $column="1fr auto" $place="end">
-          {/* 수정 에디터 여부에 따라 렌더링 */}
-          {onEditor ? null : (
-            <>
-              <Button onClick={handleOpenModal}>글 수정열기</Button>
-              <Button onClick={fetchArticleDelete}>삭제하기</Button>
-            </>
-          )}
-        </Grid>
-        <Grid $column="1fr">
-          {/* 비밀번호 확인되면 수정 에디터가 보임 */}
-          {!onEditor ? (
-            <>
-              <Grid $column="auto 1fr">
-                <p>닉네임 : {article.nickname} |</p>
-                <span>
-                  업데이트 날짜 :
-                  {new Date(article.updatedAt).toLocaleDateString()}
-                </span>
-              </Grid>
-              <SubjectTitle title={article.title} />
-              <div dangerouslySetInnerHTML={{ __html: article.content }} />
-            </>
-          ) : (
-            <>
-              <Input
-                placeholder="제목을 적어주세요."
-                onChange={onChangeTitle}
-              />
-              <Editor onChange={onChangeContent} value={article.content} />
-              <Grid $column="1fr 1fr auto" $place="end">
-                <Button onClick={fetchArticleUpdate}>수정된 글 업로드</Button>
-                <Button
-                  onClick={() => {
-                    setOnEditor(false);
-                  }}
-                >
-                  취소
-                </Button>
-                <Button onClick={navigateToGallery}>목록으로</Button>
-              </Grid>
-            </>
-          )}
-        </Grid>
-      </Layout>
+      <Grid $column="1fr" $place="center">
+        <Main>
+          <Grid $column="1fr auto" $place="end">
+            {/* 수정 에디터 여부에 따라 렌더링 */}
+            {onEditor ? null : (
+              <>
+                <Button onClick={handleOpenModal}>글 수정열기</Button>
+                <Button onClick={fetchArticleDelete}>삭제하기</Button>
+              </>
+            )}
+          </Grid>
+          <Grid $column="1fr">
+            {/* 비밀번호 확인되면 수정 에디터가 보임 */}
+            {!onEditor ? (
+              <>
+                <Grid $column="auto 1fr">
+                  <p>닉네임 : {article.nickname} |</p>
+                  <span>
+                    업데이트 날짜 :
+                    {new Date(article.updatedAt).toLocaleDateString()}
+                  </span>
+                </Grid>
+                <SubjectTitle title={article.title} />
+                <div dangerouslySetInnerHTML={{ __html: article.content }} />
+              </>
+            ) : (
+              <>
+                <Input
+                  placeholder="제목을 적어주세요."
+                  onChange={onChangeTitle}
+                />
+                <Editor onChange={onChangeContent} value={article.content} />
+                <Grid $column="1fr 1fr auto" $place="end">
+                  <Button onClick={fetchArticleUpdate}>수정된 글 업로드</Button>
+                  <Button
+                    onClick={() => {
+                      setOnEditor(false);
+                    }}
+                  >
+                    취소
+                  </Button>
+                  <Button onClick={navigateToGallery}>목록으로</Button>
+                </Grid>
+              </>
+            )}
+          </Grid>
+        </Main>
+      </Grid>
       {/* 비밀번호 확인 모달 */}
       {onModal ? (
         <Modal onClick={handleOpenModal}>

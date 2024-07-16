@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 //Components
-import Layout from "@/components/Layout/Layout";
+import Main from "@/components/Layout/Main";
 import Grid from "@/components/Layout/Grid";
 import HeadingTitle from "@/components/UI/HeadingTitle";
 import Button from "@/components/UI/Button";
@@ -42,25 +42,25 @@ const Home = () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Layout>
-        <Grid $column={"1fr"} $place={"center"}>
-          <HeadingTitle
-            bigTitle={"My color pick!, 그라데이션 UI 컴포넌트 KIT"}
-            subTitle={
-              "사용자들이 원하는 컬러를 선택하고, 해당 컬러에 맞춘 UI 컴포넌트를 재사용 가능한 코드로 제공하는 라이브러리 사이트"
-            }
-          />
-          <Button onClick={navigateToShow}>쇼케이스 보기</Button>
-        </Grid>
-        <Grid $column={"1fr"} $place={"center"}>
-          <HeadingTitle
-            subTitle={
-              "사용자들이 원하는 컬러를 선택하고, 해당 컬러에 맞춘 UI 컴포넌트를 재사용 가능한 코드로 제공하는 라이브러리 사이트"
-            }
-          />
-          <CardList ListData={cardListData} />
-        </Grid>
-      </Layout>
+      <Grid $column="1fr" $place="center">
+        <Main>
+          <Grid $column="1fr" $place="center">
+            <HeadingTitle
+              bigTitle="My color pick!, 그라데이션 UI 컴포넌트 KIT"
+              subTitle="사용자들이 원하는 컬러를 선택하고, 해당 컬러에 맞춘 UI 컴포넌트를 재사용 가능한 코드로 제공하는 라이브러리 사이트"
+            />
+            <Button onClick={navigateToShow}>쇼케이스 보기</Button>
+          </Grid>
+          <Grid $column="1fr" $place="center">
+            <HeadingTitle
+              subTitle={
+                "사용자들이 원하는 컬러를 선택하고, 해당 컬러에 맞춘 UI 컴포넌트를 재사용 가능한 코드로 제공하는 라이브러리 사이트"
+              }
+            />
+            <CardList ListData={cardListData} />
+          </Grid>
+        </Main>
+      </Grid>
     </>
   );
 };

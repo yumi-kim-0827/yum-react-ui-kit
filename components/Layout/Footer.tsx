@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import LinkIcon from "@/components/UI/LinkIcon";
 
-const FootContainer = styled.footer`
+const FooterWrap = styled.footer`
   position: relative;
   padding: 20px;
   display: flex;
@@ -15,13 +15,13 @@ const FootContainer = styled.footer`
 
 const Footer = () => {
   return (
-    <FootContainer>
+    <FooterWrap>
       <span>Copyright© 2024 KIM YUMEE</span>
       <LinkIcon
         href={"https://github.com/yumi-kim-0827"}
         imgSrc={"i_github.svg"}
       />
-    </FootContainer>
+    </FooterWrap>
   );
 };
 

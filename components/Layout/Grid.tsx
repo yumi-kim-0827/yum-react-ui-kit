@@ -7,6 +7,7 @@ interface GridColumnProps {
 }
 
 const GridWrap = styled.div<GridColumnProps>`
+  position: relative;
   padding: 20px 0;
   display: grid;
   grid-template-columns: ${({ $column }) => $column || "1fr"};

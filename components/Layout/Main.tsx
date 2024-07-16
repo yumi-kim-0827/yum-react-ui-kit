@@ -1,10 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "@/components/Layout/Header";
-import Footer from "@/components/Layout/Footer";
 
-const Main = styled.main`
-  margin: 50px auto;
+const MainContainer = styled.main`
   padding: 50px 20px;
   width: 100%;
   max-width: 1200px;
@@ -21,14 +18,8 @@ const Main = styled.main`
   }
 `;
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  return (
-    <>
-      <Header />
-      <Main>{children}</Main>
-      <Footer />
-    </>
-  );
+const Main: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  return <MainContainer>{children}</MainContainer>;
 };
 
-export default Layout;
+export default Main;
