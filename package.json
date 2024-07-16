@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@nivo/core": "^0.87.0",
-    "@nivo/pie": "^0.87.0",
     "mogoose": "^0.0.1-security",
     "mongoose": "^8.4.5",
     "next": "14.2.4",
