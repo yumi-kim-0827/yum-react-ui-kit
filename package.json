@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.9.13",
     "mogoose": "^0.0.1-security",
     "mongoose": "^8.4.5",
     "next": "14.2.4",
@@ -21,6 +22,7 @@
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.41",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
