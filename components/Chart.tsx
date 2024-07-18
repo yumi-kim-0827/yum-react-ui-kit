@@ -39,61 +39,6 @@ const Chart = () => {
         value: 216,
         value2: 120,
       },
-      {
-        date: new Date(2021, 0, 4).getTime(),
-        value: 150,
-        value2: 190,
-      },
-      {
-        date: new Date(2021, 0, 5).getTime(),
-        value: 156,
-        value2: 190,
-      },
-      {
-        date: new Date(2021, 0, 6).getTime(),
-        value: 199,
-        value2: 120,
-      },
-      {
-        date: new Date(2021, 0, 7).getTime(),
-        value: 114,
-        value2: 300,
-      },
-      {
-        date: new Date(2021, 0, 8).getTime(),
-        value: 269,
-        value2: 290,
-      },
-      {
-        date: new Date(2021, 0, 9).getTime(),
-        value: 190,
-        value2: 290,
-      },
-      {
-        date: new Date(2021, 0, 10).getTime(),
-        value: 380,
-        value2: 170,
-      },
-      {
-        date: new Date(2021, 0, 11).getTime(),
-        value: 250,
-        value2: 200,
-      },
-      {
-        date: new Date(2021, 0, 12).getTime(),
-        value: 110,
-        value2: 210,
-      },
-      {
-        date: new Date(2021, 0, 13).getTime(),
-        value: 185,
-        value2: 85,
-      },
-      {
-        date: new Date(2021, 0, 14).getTime(),
-        value: 105,
-        value2: 244,
-      },
     ];
 
     // Create Y-axis
@@ -150,9 +95,10 @@ const Chart = () => {
       series.get("tooltip").label.set("text", "[bold]{name}[/]: {valueY}");
       series.data.setAll(data);
     }
-
-    createSeries("서울", "value");
-    createSeries("경기", "value2");
+    //여기서 그래프 변수 생성
+    createSeries("apple", "value");
+    createSeries("banana", "value2");
+    createSeries("grape", "value3");
 
     // Add cursor
     chart.set(
