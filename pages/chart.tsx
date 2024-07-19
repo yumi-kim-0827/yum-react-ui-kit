@@ -10,7 +10,7 @@ const ChartWrap = styled.div`
   height: 500px;
 `;
 
-const Chart = dynamic(() => import("@/components/Chart"), {
+const Chart = dynamic(() => import("@/components/Chart/Chart"), {
   loading: () => <p>로딩 중 ...</p>,
   ssr: false,
 });
