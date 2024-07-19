@@ -17,9 +17,13 @@ const Gallery = () => {
   const [articles, setArticles] = useState([]);
 
   const fetchArticles = async () => {
-    const res = await fetch("/api/gallery/article");
-    const data = await res.json();
-    setArticles(data);
+    try {
+      const res = await fetch("/api/gallery/article");
+      const data = await res.json();
+      setArticles(data);
+    } catch (error) {
+      console.log(error, "게시글을 불러오기 에러");
+    }
   };
 
   useEffect(() => {
@@ -42,7 +46,11 @@ const Gallery = () => {
           </Grid>
           <Grid $column="1fr">
             <SubjectTitle title="자유게시판" text="자유롭게 이야기를 해요." />
-            <ArticleList articles={articles} />
+            {articles.length === 0 ? (
+              <p>전체 게시물 로딩 중 ...</p>
+            ) : (
+              <ArticleList articles={articles} />
+            )}
           </Grid>
         </Main>
       </Grid>
