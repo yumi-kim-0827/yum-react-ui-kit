@@ -4,6 +4,7 @@ import LinkIcon from "@/components/UI/LinkIcon";
 
 const FooterWrap = styled.footer`
   position: relative;
+  margin-top: auto;
   padding: 20px;
   display: flex;
   justify-content: space-between;

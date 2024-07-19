@@ -13,7 +13,6 @@ const GridWrap = styled.div<GridColumnProps>`
   grid-template-columns: ${({ $column }) => $column || "1fr"};
   place-items: ${({ $place }) => $place || "start"};
   gap: 20px;
-
   @media ${({ theme }) => theme.device.small} {
     grid-template-columns: 1fr;
     place-items: center;
