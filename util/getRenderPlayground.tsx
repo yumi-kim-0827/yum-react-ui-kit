@@ -67,10 +67,12 @@ export const renderPlayground = ({
             <BaseTable colorhex={colorHex}>{exampleTable()}</BaseTable>
           </PlayGround>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
-            <DarkTable colorhex={colorHex} subcolorhex={secondColorHex} />
+            <DarkTable colorhex={colorHex} subcolorhex={secondColorHex}>
+              {exampleTable()}
+            </DarkTable>
           </PlayGround>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
-            <RoundTable colorhex={colorHex} />
+            <RoundTable colorhex={colorHex}>{exampleTable()}</RoundTable>
           </PlayGround>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
             <BorderTable colorhex={colorHex}>{exampleTable()}</BorderTable>

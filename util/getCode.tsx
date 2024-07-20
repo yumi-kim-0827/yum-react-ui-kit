@@ -185,27 +185,29 @@ export const getCode = (
           </BaseTable>
         )
         `;
-    //BorderTable
-    case "BorderTable":
+    //DarkTable
+    case "DarkTable":
       return `
       import styled from "styled-components";
       
-      export const BorderTable = styled.table\`
+      export const DarkTable = styled.table\`
       width: 100%;
       text-align: left;
-      border-spacing: 0;
-      border-top: 3px solid ${colorhex};
-      overflow: hidden;
+      color: #fff;
+      background-color: ${colorhex};
+      thead {
+        background-color: ${subcolorhex};
+      }
       th,
       td {
         padding: 10px;
-        border-bottom: 1px solid ${colorhex};
+        border: 1px solid #e2e2e2;
       }
         \`;
         
-        ** BaseTable 사용하기
+        ** DarkTable 사용하기
         return (
-          <BaseTable>
+          <DarkTable>
             <thead>
               <tr>
                 <th>#</th>
@@ -240,7 +242,129 @@ export const getCode = (
                 <td>YUM08274</td>
               </tr>
             </tbody>
-          </BaseTable>
+          </DarkTable>
+        )
+        `;
+    //RoundTable
+    case "RoundTable":
+      return `
+      import styled from "styled-components";
+      
+      export const RoundTable = styled.table\`
+      width: 100%;
+      text-align: left;
+      border-radius: 10px;
+      border-spacing: 0;
+      overflow: hidden;
+      thead {
+        border-radius: 10px;
+        background-color: ${colorhex};
+      }
+      tbody tr td {
+        border-bottom: 1px solid ${colorhex};
+      }
+      th,
+      td {
+        padding: 10px;
+      }
+        \`;
+        
+        ** RoundTable 사용하기
+        return (
+          <RoundTable>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Dames</td>
+                <td>light</td>
+                <td>YUM08271</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Foria</td>
+                <td>marvin</td>
+                <td>YUM08272</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Elisa</td>
+                <td>gallian</td>
+                <td>YUM08273</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Larry</td>
+                <td>treasure</td>
+                <td>YUM08274</td>
+              </tr>
+            </tbody>
+          </RoundTable>
+        )
+        `;
+    //BorderTable
+    case "BorderTable":
+      return `
+      import styled from "styled-components";
+      
+      export const BorderTable = styled.table\`
+      width: 100%;
+      text-align: left;
+      border-spacing: 0;
+      border-top: 3px solid ${colorhex};
+      overflow: hidden;
+      th,
+      td {
+        padding: 10px;
+        border-bottom: 1px solid ${colorhex};
+      }
+        \`;
+        
+        ** BorderTable 사용하기
+        return (
+          <BorderTable>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Dames</td>
+                <td>light</td>
+                <td>YUM08271</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Foria</td>
+                <td>marvin</td>
+                <td>YUM08272</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Elisa</td>
+                <td>gallian</td>
+                <td>YUM08273</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Larry</td>
+                <td>treasure</td>
+                <td>YUM08274</td>
+              </tr>
+            </tbody>
+          </BorderTable>
         )
         `;
   }
