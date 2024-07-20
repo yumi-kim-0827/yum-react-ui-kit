@@ -7,6 +7,10 @@ import { OutlineButton } from "@/yum_ui_kit/OutlineButton.style";
 import { BaseInput } from "@/yum_ui_kit/BaseInput.style";
 import { BaseTextArea } from "@/yum_ui_kit/BaseTextArea.style";
 import { FileInput } from "@/yum_ui_kit/FileInput.style";
+import { BaseTable } from "@/yum_ui_kit/BaseTable.style";
+import { DarkTable } from "@/yum_ui_kit/DarkTable.style";
+import { RoundTable } from "@/yum_ui_kit/RoundTable.style";
+import { BorderTable } from "@/yum_ui_kit/BorderTable.style";
 
 interface renderPlaygroundProps {
   menuState: string;
@@ -55,6 +59,56 @@ export const renderPlayground = ({
         </>
       );
     case "table":
-      return <></>;
+      return (
+        <>
+          <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
+            <BaseTable colorhex={colorHex}>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Dames</td>
+                  <td>light</td>
+                  <td>YUM08271</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Foria</td>
+                  <td>marvin</td>
+                  <td>YUM08272</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Elisa</td>
+                  <td>gallian</td>
+                  <td>YUM08273</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>Larry</td>
+                  <td>treasure</td>
+                  <td>YUM08274</td>
+                </tr>
+              </tbody>
+            </BaseTable>
+          </PlayGround>
+          <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
+            <DarkTable colorhex={colorHex} subcolorhex={secondColorHex} />
+          </PlayGround>
+          <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
+            <RoundTable colorhex={colorHex} />
+          </PlayGround>
+          <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
+            <BorderTable colorhex={colorHex} />
+          </PlayGround>
+        </>
+      );
   }
 };

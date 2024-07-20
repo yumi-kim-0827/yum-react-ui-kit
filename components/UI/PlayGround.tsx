@@ -42,6 +42,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
   const getComponentName = () => {
     if (React.isValidElement(children)) {
       const childType = children.type as any;
+      console.log(childType);
       if (childType?.styledComponentId) {
         const cutStringIdx = childType.styledComponentId.indexOf("-");
         if (cutStringIdx !== 0) {
@@ -71,7 +72,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
 
   return (
     <PlayGroundContainer>
-      <PlayGroundHead>결과</PlayGroundHead>
+      <PlayGroundHead>{componentName} 결과</PlayGroundHead>
       <PlayGroundContent>{children}</PlayGroundContent>
       <PlayGroundHead>코드</PlayGroundHead>
       <PlayGroundContent>
