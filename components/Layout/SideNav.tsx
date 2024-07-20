@@ -38,6 +38,7 @@ const SideNav = () => {
   const menuItems = [
     { text: "button", path: "button" },
     { text: "inform", path: "inform" },
+    { text: "alert", path: "alert" },
     { text: "table", path: "table" },
   ];
 

@@ -7,6 +7,7 @@ import { OutlineButton } from "@/yum_ui_kit/OutlineButton.style";
 import { BaseInput } from "@/yum_ui_kit/BaseInput.style";
 import { BaseTextArea } from "@/yum_ui_kit/BaseTextArea.style";
 import { FileInput } from "@/yum_ui_kit/FileInput.style";
+import { BaseAlert } from "@/yum_ui_kit/BaseAlert.style";
 import { BaseTable } from "@/yum_ui_kit/BaseTable.style";
 import { DarkTable } from "@/yum_ui_kit/DarkTable.style";
 import { RoundTable } from "@/yum_ui_kit/RoundTable.style";
@@ -57,6 +58,14 @@ export const renderPlayground = ({
           </PlayGround>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
             <FileInput colorhex={colorHex} placeholder="입력해주세요." />
+          </PlayGround>
+        </>
+      );
+    case "alert":
+      return (
+        <>
+          <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
+            <BaseAlert colorhex={colorHex}>비밀번호를 변경해주세요!</BaseAlert>
           </PlayGround>
         </>
       );

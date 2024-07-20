@@ -15,8 +15,8 @@ import Card from "@/components/UI/Card";
 import CardHead from "@/components/UI/CardHead";
 
 const Showcase = () => {
-  const [color, setColor] = useColor("#fff310");
-  const [secondColor, setSecondColor] = useColor("#28aefa");
+  const [color, setColor] = useColor("#982c64");
+  const [secondColor, setSecondColor] = useColor("#5628fa");
 
   const { menuState } = useContext(MenuContext);
 
