@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import CodeSnipet from "@/components/UI/CodeSnipet";
 import ButtonWithIcon from "@/components/UI/ButtonWithIcon";
+//Utils
 import { getCode } from "@/util/getCode";
+//Contexts
+import { MenuContext } from "@/contexts/MenuContext";
 
 interface PlayGounrdProps {
   children: React.ReactNode;
@@ -34,6 +37,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
   subcolorhex,
 }) => {
   const [componentName, setComponentName] = useState<string>("");
+  const { menuState } = useContext(MenuContext);
 
   const getComponentName = () => {
     if (React.isValidElement(children)) {
@@ -52,7 +56,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
     const result = getComponentName();
     setComponentName(result);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [menuState]);
 
   const codeSnippet = getCode(componentName, colorhex, subcolorhex);
 

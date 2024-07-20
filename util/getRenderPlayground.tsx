@@ -24,7 +24,9 @@ export const renderPlayground = ({
       return (
         <>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
-            <BaseButton colorhex={colorHex}>베이스버튼</BaseButton>
+            <BaseButton colorhex={colorHex} subcolorhex={secondColorHex}>
+              베이스버튼
+            </BaseButton>
           </PlayGround>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
             <GradientButton colorhex={colorHex} subcolorhex={secondColorHex}>

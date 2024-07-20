@@ -7,9 +7,8 @@ interface BaseInputProps {
 }
 
 export const BaseInput = styled.input<BaseInputProps>`
-  padding: 10px;
+  padding: 20px;
   width: 100%;
-  height: 60px;
   border: 1px solid ${(props) => props.colorhex};
   &:focus {
     border-bottom: 3px solid ${(props) => props.colorhex};

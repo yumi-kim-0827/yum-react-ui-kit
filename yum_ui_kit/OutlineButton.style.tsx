@@ -12,11 +12,13 @@ export const OutlineButton = styled(BaseButton)<ButtonProps>`
   border: 1px solid transparent;
   background: linear-gradient(#fff, #fff) padding-box,
     linear-gradient(
-        60deg,
+        90deg,
         ${(props) => props.colorhex},
         ${(props) => props.subcolorhex}
       )
       border-box;
+  background-size: 150% 100%;
+  transition: background 0.4s ease-in-out;
   &:hover {
     background-position: 100% 0;
   }

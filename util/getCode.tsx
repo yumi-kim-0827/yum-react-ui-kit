@@ -10,26 +10,17 @@ export const getCode = (
 import styled from "styled-components";
 
 export const BaseButton = styled.button\`
+  padding: 20px;
   width: 100%;
   max-width: 200px;
-  height: 60px;
   cursor: pointer;
   color: #fff;
   font-weight: bold;
   border-radius: 200px;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  transition: background 0.4s ease-in-out;
   background-color: ${colorhex};
   &:hover {
-    moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-  }
-  &:focus {
-    outline: none;
+    background-color: ${subcolorhex};
   }
   \`;
       `;
@@ -39,32 +30,22 @@ export const BaseButton = styled.button\`
 import styled from "styled-components";
 
 export const GradientButton = styled.button\`
+  padding: 20px;
   width: 100%;
   max-width: 200px;
-  height: 60px;
   cursor: pointer;
   color: #fff;
   font-weight: bold;
   border-radius: 200px;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
   background-image: linear-gradient(
-    to right,
+    90deg,
     ${colorhex},
     ${subcolorhex}
   );
   background-size: 150% 100%;
+  transition: background 0.4s ease-in-out;
   &:hover {
     background-position: 100% 0;
-    moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-  }
-  &:focus {
-    outline: none;
   }
 \`;
     `;
@@ -73,34 +54,26 @@ export const GradientButton = styled.button\`
       return `
 import styled from "styled-components";
 
-export const GradientButton = styled.button\`
+export const OutlineButton = styled.button\`
+  padding: 20px;
   width: 100%;
   max-width: 200px;
-  height: 60px;
   cursor: pointer;
   color: #fff;
   font-weight: bold;
   border-radius: 200px;
-  moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+  border: 1px solid transparent;
   background: linear-gradient(#fff, #fff) padding-box,
-  linear-gradient(
-  60deg,
+    linear-gradient(
+      90deg,
   ${colorhex},
   ${subcolorhex}
     )
   border-box;
+  background-size: 150% 100%;
+  transition: background 0.4s ease-in-out;
   &:hover {
     background-position: 100% 0;
-    moz-transition: all 0.4s ease-in-out;
-    -o-transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
-  }
-  &:focus {
-    outline: none;
   }
 \`;
     `;
@@ -110,9 +83,8 @@ export const GradientButton = styled.button\`
 import styled from "styled-components";
 
 export const BaseInput = styled.input\`
-  padding: 10px;
+  padding: 20px;
   width: 100%;
-  height: 60px;
   border: 1px solid ${colorhex};
   &:focus {
   border-bottom: 3px solid ${colorhex};
@@ -125,9 +97,9 @@ export const BaseInput = styled.input\`
 import styled from "styled-components";
 
 export const BaseTextArea = styled.textarea\`
-  padding: 10px;
+  padding: 20px;
   width: 100%;
-  height: 100px;
+  max-height: 100px;
   border: 1px solid ${colorhex};
   &:focus {
     border-bottom: 3px solid ${colorhex};
@@ -144,7 +116,7 @@ export const FileInput = styled.input.attrs({
   type: "file",
   accept: "image/png, image/jpeg",
 })\`
-  padding: 10px;
+  padding: 20px;
   background-color: #fff;
   border: 1px solid ${colorhex};
   input {
