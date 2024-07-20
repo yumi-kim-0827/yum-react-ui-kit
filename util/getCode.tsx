@@ -122,7 +122,30 @@ export const FileInput = styled.input.attrs({
   input {
     display: none;
   }
-\`;
+\`
+              `;
+    //BaseAlert
+    case "BaseAlert":
+      return `
+import styled from "styled-components";
+
+export const BaseAlert = styled.div\`
+  padding: 10px;
+  color: ${colorhex};
+  border: 1px solid ${colorhex};
+\`
+              `;
+    //BorderAlert
+    case "BorderAlert":
+      return `
+import styled from "styled-components";
+
+export const BorderAlert = styled.div\`
+padding: 10px;
+color: ${colorhex};
+border: 1px solid #d3d3d3;
+border-left: 3px solid ${colorhex};
+\`
               `;
     //BaseTable
     case "BaseTable":
@@ -144,7 +167,7 @@ export const BaseTable = styled.table\`
     border: 1px solid #e2e2e2;
   }
   \`;
-
+---------------------------  
   ** BaseTable 사용하기
   return (
     <BaseTable>
@@ -204,7 +227,7 @@ td {
   border: 1px solid #e2e2e2;
 }
   \`;
-  
+---------------------------    
   ** DarkTable 사용하기
   return (
     <DarkTable>
@@ -268,7 +291,7 @@ td {
   padding: 10px;
 }
   \`;
-  
+---------------------------  
   ** RoundTable 사용하기
   return (
     <RoundTable>
@@ -326,7 +349,7 @@ td {
   border-bottom: 1px solid ${colorhex};
 }
   \`;
-  
+---------------------------    
   ** BorderTable 사용하기
   return (
     <BorderTable>

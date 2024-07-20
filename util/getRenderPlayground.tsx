@@ -12,6 +12,7 @@ import { BaseTable } from "@/yum_ui_kit/BaseTable.style";
 import { DarkTable } from "@/yum_ui_kit/DarkTable.style";
 import { RoundTable } from "@/yum_ui_kit/RoundTable.style";
 import { BorderTable } from "@/yum_ui_kit/BorderTable.style";
+import { BorderAlert } from "@/yum_ui_kit/BorderAlert.style";
 //Utill
 import { exampleTable } from "@/util/getTableCode";
 
@@ -66,6 +67,11 @@ export const renderPlayground = ({
         <>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
             <BaseAlert colorhex={colorHex}>비밀번호를 변경해주세요!</BaseAlert>
+          </PlayGround>
+          <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
+            <BorderAlert colorhex={colorHex}>
+              비밀번호를 변경해주세요!
+            </BorderAlert>
           </PlayGround>
         </>
       );

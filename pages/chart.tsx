@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import dynamic from "next/dynamic";
 // Components
@@ -16,6 +16,9 @@ const Chart = dynamic(() => import("@/components/Chart/Chart"), {
 });
 
 const Infographic = () => {
+  const [firstData, setFirstData] = useState();
+  const [secondData, setSecondData] = useState();
+
   return (
     <>
       <Grid $column="1fr" $place="center">

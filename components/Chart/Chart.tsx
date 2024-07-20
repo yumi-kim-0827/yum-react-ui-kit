@@ -98,7 +98,6 @@ const Chart = () => {
     //여기서 그래프 변수 생성
     createSeries("apple", "value");
     createSeries("banana", "value2");
-    createSeries("grape", "value3");
 
     // Add cursor
     chart.set(
@@ -128,7 +127,7 @@ const Chart = () => {
     };
   }, []);
 
-  return <div id={"chartdiv"} style={{ width: "1000px", height: "500px" }} />;
+  return <div id={"chartdiv"} style={{ width: "100%", height: "500px" }} />;
 };
 
 export default Chart;
