@@ -16,118 +16,105 @@ const Chart = () => {
   useLayoutEffect(() => {
     maybeDisposeRoot("chartdiv");
     let root = am5.Root.new("chartdiv");
-    const chart = root.container.children.push(
+    root.setThemes([am5themes_Animated.new(root)]);
+
+    // Create chart
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/
+    let chart = root.container.children.push(
       am5xy.XYChart.new(root, {
+        panX: true,
+        panY: true,
+        wheelX: "panX",
         wheelY: "zoomX",
+        pinchZoomX: true,
       })
     );
 
-    // 데이터
-    const data = [
-      {
-        date: new Date(2021, 0, 1).getTime(),
-        value: 100,
-        value2: 220,
-      },
-      {
-        date: new Date(2021, 0, 2).getTime(),
-        value: 320,
-        value2: 300,
-      },
-      {
-        date: new Date(2021, 0, 3).getTime(),
-        value: 216,
-        value2: 120,
-      },
-    ];
+    // Add cursor
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/cursor/
+    let cursor = chart.set("cursor", am5xy.XYCursor.new(root, {}));
+    cursor.lineY.set("visible", false);
 
-    // Create Y-axis
+    // Create axes
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+    let xRenderer = am5xy.AxisRendererX.new(root, {
+      minGridDistance: 30,
+      minorGridEnabled: true,
+    });
+
+    xRenderer.labels.template.setAll({
+      rotation: -90,
+      centerY: am5.p50,
+      centerX: am5.p100,
+    });
+
+    xRenderer.grid.template.setAll({
+      location: 1,
+    });
+
+    let xAxis = chart.xAxes.push(
+      am5xy.CategoryAxis.new(root, {
+        maxDeviation: 0.3,
+        categoryField: "category",
+        renderer: xRenderer,
+        tooltip: am5.Tooltip.new(root, {}),
+      })
+    );
+
+    let yRenderer = am5xy.AxisRendererY.new(root, {
+      strokeOpacity: 0.1,
+    });
+
     let yAxis = chart.yAxes.push(
       am5xy.ValueAxis.new(root, {
-        extraTooltipPrecision: 1,
-        renderer: am5xy.AxisRendererY.new(root, {
-          minGridDistance: 30,
-        }),
-      })
-    );
-
-    // Create X-Axis
-    let xAxis = chart.xAxes.push(
-      am5xy.DateAxis.new(root, {
-        baseInterval: { timeUnit: "day", count: 1 },
-        renderer: am5xy.AxisRendererX.new(root, {
-          minGridDistance: 20,
-          cellStartLocation: 0.2,
-          cellEndLocation: 0.8,
-        }),
+        maxDeviation: 0.3,
+        renderer: yRenderer,
       })
     );
 
     // Create series
-    function createSeries(name: string, field: string) {
-      var series = chart.series.push(
-        am5xy.LineSeries.new(root, {
-          name: name,
-          xAxis: xAxis,
-          yAxis: yAxis,
-          valueYField: field,
-          valueXField: "date",
-          tooltip: am5.Tooltip.new(root, {}),
-        })
-      );
-
-      series.strokes.template.setAll({
-        strokeWidth: 2,
-      });
-
-      series.events.on("datavalidated", function () {
-        // @ts-ignore
-        chart.get("cursor").setAll({
-          positionX: 0.99,
-          positionY: 0.4,
-          xAxis: xAxis,
-          yAxis: yAxis,
-          alwaysShow: true,
-        });
-      });
-
-      // @ts-ignore
-      series.get("tooltip").label.set("text", "[bold]{name}[/]: {valueY}");
-      series.data.setAll(data);
-    }
-    //여기서 그래프 변수 생성
-    createSeries("apple", "value");
-    createSeries("banana", "value2");
-
-    // Add cursor
-    chart.set(
-      "cursor",
-      am5xy.XYCursor.new(root, {
-        behavior: "none",
+    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+    let series = chart.series.push(
+      am5xy.ColumnSeries.new(root, {
+        name: "Series 1",
         xAxis: xAxis,
+        yAxis: yAxis,
+        valueYField: "value",
+        sequencedInterpolation: true,
+        categoryXField: "category",
+        tooltip: am5.Tooltip.new(root, {
+          labelText: "{valueY}",
+        }),
       })
     );
 
-    xAxis.set(
-      "tooltip",
-      am5.Tooltip.new(root, {
-        themeTags: ["axis"],
-      })
-    );
+    series.columns.template.setAll({
+      cornerRadiusTL: 5,
+      cornerRadiusTR: 5,
+      strokeOpacity: 0,
+    });
 
-    yAxis.set(
-      "tooltip",
-      am5.Tooltip.new(root, {
-        themeTags: ["axis"],
-      })
-    );
+    // Set data
+    let data = [
+      {
+        category: "데이터 1",
+        value: 32,
+      },
+      {
+        category: "데이터 2",
+        value: 14,
+      },
+    ];
+
+    xAxis.data.setAll(data);
+    series.data.setAll(data);
 
     return () => {
       chart.dispose();
     };
   }, []);
 
-  return <div id={"chartdiv"} style={{ width: "100%", height: "500px" }} />;
+  return <div id={"chartdiv"} style={{ width: "100%", height: "100%" }} />;
 };
 
 export default Chart;
