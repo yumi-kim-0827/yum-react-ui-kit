@@ -11,6 +11,8 @@ import { BaseTable } from "@/yum_ui_kit/BaseTable.style";
 import { DarkTable } from "@/yum_ui_kit/DarkTable.style";
 import { RoundTable } from "@/yum_ui_kit/RoundTable.style";
 import { BorderTable } from "@/yum_ui_kit/BorderTable.style";
+//Utill
+import { exampleTable } from "@/util/getTableCode";
 
 interface renderPlaygroundProps {
   menuState: string;
@@ -62,42 +64,7 @@ export const renderPlayground = ({
       return (
         <>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
-            <BaseTable colorhex={colorHex}>
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Dames</td>
-                  <td>light</td>
-                  <td>YUM08271</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Foria</td>
-                  <td>marvin</td>
-                  <td>YUM08272</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Elisa</td>
-                  <td>gallian</td>
-                  <td>YUM08273</td>
-                </tr>
-                <tr>
-                  <td>4</td>
-                  <td>Larry</td>
-                  <td>treasure</td>
-                  <td>YUM08274</td>
-                </tr>
-              </tbody>
-            </BaseTable>
+            <BaseTable colorhex={colorHex}>{exampleTable()}</BaseTable>
           </PlayGround>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
             <DarkTable colorhex={colorHex} subcolorhex={secondColorHex} />
@@ -106,7 +73,7 @@ export const renderPlayground = ({
             <RoundTable colorhex={colorHex} />
           </PlayGround>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
-            <BorderTable colorhex={colorHex} />
+            <BorderTable colorhex={colorHex}>{exampleTable()}</BorderTable>
           </PlayGround>
         </>
       );
