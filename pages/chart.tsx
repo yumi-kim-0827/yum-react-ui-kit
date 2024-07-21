@@ -20,12 +20,16 @@ const Chart = dynamic(() => import("@/components/Chart/Chart"), {
 });
 
 const Infographic = () => {
-  const [firstData, setFirstData] = useState(0);
-  const [secondData, setSecondData] = useState(0);
+  const [firstData, setFirstData] = useState<number>(10);
+  const [secondData, setSecondData] = useState<number>(0);
 
-  // const onChangeFirstData = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setFirstData(e.target.value);
-  // };
+  const onChangeFirstData = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFirstData(Number(e.target.value));
+  };
+
+  const onChangeSecondData = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSecondData(Number(e.target.value));
+  };
 
   return (
     <>
@@ -38,15 +42,21 @@ const Infographic = () => {
           <Grid $column="repeat(2, 1fr)">
             <Card>
               <CardHead>데이터 1 입력</CardHead>
-              <InputNumber placeholder="숫자로 적어주세요" />
+              <InputNumber
+                placeholder="숫자로 적어주세요"
+                onChange={onChangeFirstData}
+              />
             </Card>
             <Card>
               <CardHead>데이터 2 입력</CardHead>
-              <InputNumber placeholder="숫자로 적어주세요" />
+              <InputNumber
+                placeholder="숫자로 적어주세요"
+                onChange={onChangeSecondData}
+              />
             </Card>
           </Grid>
           <ChartWrap>
-            <Chart />
+            <Chart firstData={firstData} secondData={secondData} />
           </ChartWrap>
         </Main>
       </Grid>
