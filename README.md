@@ -7,9 +7,11 @@ mobgodb 데이터베이스 서비스를 활용하여 RESTful API기반 HTTP통�
 
 <!--프로젝트 대문 이미지-->
 
-https://yum-react-ui-kit.vercel.app/
+Project View : [here](https://yum-react-ui-kit.vercel.app/)
+
 ![sc1](https://github.com/yumi-kim-0827/yum-react-ui-kit/assets/116349476/45261959-fdbe-4937-a5da-b7a7c1a6cea6)
-![dsa](https://github.com/yumi-kim-0827/yum-react-ui-kit/assets/116349476/f5887533-30a8-4381-acf6-04a989812119)
+
+![sce](https://github.com/user-attachments/assets/fd0e9b4d-db71-442e-a146-693c91543075)
 
 <!--목차-->
 
