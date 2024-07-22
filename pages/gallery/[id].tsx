@@ -116,12 +116,13 @@ const Article = () => {
     <>
       <Grid $column="1fr" $place="center">
         <Main>
-          <Grid $column="1fr auto" $place="end">
+          <Grid $column="1fr auto auto" $place="end">
             {/* 수정 에디터 여부에 따라 렌더링 */}
             {onEditor ? null : (
               <>
                 <Button onClick={handleOpenModal}>글 수정열기</Button>
                 <Button onClick={fetchArticleDelete}>삭제하기</Button>
+                <Button onClick={navigateToGallery}>글 목록</Button>
               </>
             )}
           </Grid>

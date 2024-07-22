@@ -36,9 +36,10 @@ const SideNav = () => {
 
   // 사이드바 메뉴 리스트
   const menuItems = [
+    { text: "alert", path: "alert" },
+    { text: "badge", path: "badge" },
     { text: "button", path: "button" },
     { text: "inform", path: "inform" },
-    { text: "alert", path: "alert" },
     { text: "table", path: "table" },
   ];
 

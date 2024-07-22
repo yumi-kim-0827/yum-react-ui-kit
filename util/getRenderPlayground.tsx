@@ -1,6 +1,7 @@
 //Components
 import PlayGround from "@/components/UI/PlayGround";
 //YUM UI
+import { BaseBadge } from "@/yum_ui_kit/BaseBadge.style";
 import { BaseButton } from "@/yum_ui_kit/BaseButton.style";
 import { GradientButton } from "@/yum_ui_kit/GradientButton.style";
 import { OutlineButton } from "@/yum_ui_kit/OutlineButton.style";
@@ -28,6 +29,14 @@ export const renderPlayground = ({
   secondColorHex,
 }: renderPlaygroundProps) => {
   switch (menuState) {
+    case "badge":
+      return (
+        <>
+          <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
+            <BaseBadge colorhex={colorHex}>기본 라인 뱃지</BaseBadge>
+          </PlayGround>
+        </>
+      );
     case "button":
       return (
         <>

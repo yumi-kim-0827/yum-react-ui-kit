@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import styled from "styled-components";
 import dynamic from "next/dynamic";
 // Components
 import Main from "@/components/Layout/Main";
@@ -9,19 +8,14 @@ import Card from "@/components/UI/Card";
 import CardHead from "@/components/UI/CardHead";
 import InputNumber from "@/components/UI/InputNumber";
 
-const ChartWrap = styled.div`
-  width: 100%;
-  height: 500px;
-`;
-
 const Chart = dynamic(() => import("@/components/Chart/Chart"), {
   loading: () => <p>로딩 중 ...</p>,
   ssr: false,
 });
 
 const Infographic = () => {
-  const [firstData, setFirstData] = useState<number>(10);
-  const [secondData, setSecondData] = useState<number>(0);
+  const [firstData, setFirstData] = useState<number>(8); //데이터 1 입력 상태
+  const [secondData, setSecondData] = useState<number>(10); // 데이터 2 입력 상태
 
   const onChangeFirstData = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFirstData(Number(e.target.value));
@@ -55,9 +49,7 @@ const Infographic = () => {
               />
             </Card>
           </Grid>
-          <ChartWrap>
-            <Chart firstData={firstData} secondData={secondData} />
-          </ChartWrap>
+          <Chart firstData={firstData} secondData={secondData} />
         </Main>
       </Grid>
     </>

@@ -39,7 +39,7 @@ const Header = () => {
               <Link href="/gallery/gallery">Gallery</Link>
             </li>
             <li>
-              <Link href="/chart">Chart</Link>
+              <Link href="/infographic">Chart</Link>
             </li>
           </ul>
         </MenuNav>
