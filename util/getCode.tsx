@@ -401,6 +401,41 @@ font-size: 14px;
 border-radius: 4px;
 border: 1px solid ${colorhex};
 \`;
-                  `;
+        `;
+    //DarkBadge
+    case "DarkBadge":
+      return `
+import styled from "styled-components";
+
+export const DarkBadge = styled.button\`
+padding: 4px;
+font-size: 14px;
+border-radius: 4px;
+color: #fff;
+background-color: ${colorhex};
+\`;
+        `;
+    //GradientBadge
+    case "GradientBadge":
+      return `
+import styled from "styled-components";
+
+export const GradientBadge = styled.button\`
+padding: 4px;
+font-size: 14px;
+color: #fff;
+border-radius: 4px;
+background-image: linear-gradient(
+  90deg,
+  ${colorhex},
+  ${subcolorhex}
+);
+background-size: 150% 100%;
+transition: background 0.4s ease-in-out;
+&:hover {
+  background-position: 100% 0;
+}
+\`;
+        `;
   }
 };
