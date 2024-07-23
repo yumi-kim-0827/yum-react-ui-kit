@@ -390,5 +390,17 @@ td {
     </BorderTable>
   )
         `;
+    //BaseBadge
+    case "BaseBadge":
+      return `
+import styled from "styled-components";
+
+export const BaseBadge = styled.button\`
+padding: 4px;
+font-size: 14px;
+border-radius: 4px;
+border: 1px solid ${colorhex};
+\`;
+                  `;
   }
 };
