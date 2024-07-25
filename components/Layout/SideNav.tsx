@@ -41,6 +41,9 @@ const SideNav = () => {
     { text: "button", path: "button" },
     { text: "inform", path: "inform" },
     { text: "table", path: "table" },
+    { text: "list", path: "list" },
+    { text: "tab", path: "tab" },
+    { text: "card", path: "card" },
   ];
 
   return (
