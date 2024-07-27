@@ -38,10 +38,11 @@ const SideNav = () => {
   const menuItems = [
     { text: "alert", path: "alert" },
     { text: "badge", path: "badge" },
+    { text: "breadcrumbs", path: "breadcrumbs" },
     { text: "button", path: "button" },
     { text: "inform", path: "inform" },
     { text: "table", path: "table" },
-    { text: "list", path: "list" },
+    { text: "listgroup", path: "listgroup" },
     { text: "tab", path: "tab" },
     { text: "card", path: "card" },
   ];
