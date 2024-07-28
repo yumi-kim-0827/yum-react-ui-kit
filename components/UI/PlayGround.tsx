@@ -1,9 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
+//components
+import Grid from "@/components/Layout/Grid";
 import CodeSnipet from "@/components/UI/CodeSnipet";
 import ButtonWithIcon from "@/components/UI/ButtonWithIcon";
 //Utils
 import { getCode } from "@/util/getCode";
+import { getBlock } from "@/util/getBlock";
 //Contexts
 import { MenuContext } from "@/contexts/MenuContext";
 
@@ -59,6 +62,8 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
   }, [menuState]);
 
   const codeSnippet = getCode(componentName, colorhex, subcolorhex);
+  const codeBlock = getBlock(codeSnippet);
+  const [showCodeBlock, setShowCodeBlock] = useState(false);
 
   const handlerCodeCopy: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (codeSnippet) {
@@ -73,11 +78,29 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
     <PlayGroundContainer>
       <PlayGroundHead>{componentName} 결과</PlayGroundHead>
       <PlayGroundContent>{children}</PlayGroundContent>
-      <PlayGroundHead>코드</PlayGroundHead>
+      <PlayGroundHead>
+        <Grid $column="1fr auto" $place="end">
+          styled-component 코드
+          <ButtonWithIcon
+            imgSrc="i_copy.svg"
+            onClick={() => {
+              setShowCodeBlock(false);
+            }}
+          />
+          코드 사용 예시
+          <ButtonWithIcon
+            imgSrc="i_copy.svg"
+            onClick={() => {
+              setShowCodeBlock(true);
+            }}
+          />
+        </Grid>
+      </PlayGroundHead>
       <PlayGroundContent>
         <CodeSnipet>
           <ButtonWithIcon imgSrc="i_copy.svg" onClick={handlerCodeCopy} />
-          {codeSnippet}
+          {/* showCodeBlock 불린값에 따라 codeSnippet과 codeBlock 보여짐 */}
+          {showCodeBlock ? codeBlock : codeSnippet}
         </CodeSnipet>
       </PlayGroundContent>
     </PlayGroundContainer>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import Head from "next/head";
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/css";
@@ -17,7 +17,6 @@ import CardHead from "@/components/UI/CardHead";
 const Showcase = () => {
   const [color, setColor] = useColor("#982c64");
   const [secondColor, setSecondColor] = useColor("#5628fa");
-
   const { menuState } = useContext(MenuContext);
 
   return (
