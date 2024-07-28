@@ -1,11 +1,17 @@
-export const getBlock = (codeSnippet: any) => {
-  switch (codeSnippet) {
+export const getBlock = (componentName: string, codeSnippet: any) => {
+  switch (componentName) {
     //BaseButton
     case "BaseButton":
-      return `
-      ${codeSnippet}
-\`;
-                  `;
+      return `${codeSnippet}
+const ExampleComponent = () => {
+  return (
+    <>
+      <BaseButton>버튼 텍스트</BaseButton>;
+    </>
+  );
+};
+
+export default ExampleComponent;`;
     //GradientButton
     case "GradientButton":
       return `

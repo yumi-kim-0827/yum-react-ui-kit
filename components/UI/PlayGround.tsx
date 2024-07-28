@@ -62,7 +62,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
   }, [menuState]);
 
   const codeSnippet = getCode(componentName, colorhex, subcolorhex);
-  const codeBlock = getBlock(codeSnippet);
+  const codeBlock = getBlock(componentName, codeSnippet);
   const [showCodeBlock, setShowCodeBlock] = useState(false);
 
   const handlerCodeCopy: React.MouseEventHandler<HTMLButtonElement> = () => {
@@ -87,7 +87,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
               setShowCodeBlock(false);
             }}
           />
-          코드 사용 예시
+          컴포넌트 사용 예시
           <ButtonWithIcon
             imgSrc="i_copy.svg"
             onClick={() => {
