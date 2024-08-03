@@ -79,21 +79,25 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
       <PlayGroundHead>{componentName} 결과</PlayGroundHead>
       <PlayGroundContent>{children}</PlayGroundContent>
       <PlayGroundHead>
-        <Grid $column="1fr auto" $place="end">
-          styled-component 코드
-          <ButtonWithIcon
-            imgSrc="i_copy.svg"
-            onClick={() => {
-              setShowCodeBlock(false);
-            }}
-          />
-          컴포넌트 사용 예시
-          <ButtonWithIcon
-            imgSrc="i_copy.svg"
-            onClick={() => {
-              setShowCodeBlock(true);
-            }}
-          />
+        <Grid $column="1fr 1fr" $place="space-between">
+          <Grid $column="auto 1fr">
+            <ButtonWithIcon
+              imgSrc="i_copy.svg"
+              onClick={() => {
+                setShowCodeBlock(false);
+              }}
+            />
+            <div>styled-component</div>
+          </Grid>
+          <Grid $column="auto 1fr">
+            <ButtonWithIcon
+              imgSrc="i_copy.svg"
+              onClick={() => {
+                setShowCodeBlock(true);
+              }}
+            />
+            <div>컴포넌트 사용 예시</div>
+          </Grid>
         </Grid>
       </PlayGroundHead>
       <PlayGroundContent>
