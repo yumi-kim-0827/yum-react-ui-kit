@@ -80,7 +80,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
       <PlayGroundContent>{children}</PlayGroundContent>
       <PlayGroundHead>
         <Grid $column="1fr 1fr" $place="space-between">
-          <Grid $column="auto 1fr">
+          <Grid $column="auto 1fr" $place="center start">
             <ButtonWithIcon
               imgSrc="i_copy.svg"
               onClick={() => {
@@ -89,7 +89,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
             />
             <div>styled-component</div>
           </Grid>
-          <Grid $column="auto 1fr">
+          <Grid $column="auto 1fr" $place="center start">
             <ButtonWithIcon
               imgSrc="i_copy.svg"
               onClick={() => {
