@@ -319,5 +319,17 @@ const ExampleComponent = () => {
 };
 
 export default ExampleComponent;`;
+    //RoundBadge
+    case "RoundBadge":
+      return `${codeSnippet}
+const ExampleComponent = () => {
+  return (
+    <>
+      <RoundBadge>텍스트</RoundBadge>;
+    </>
+  );
+};
+
+export default ExampleComponent;`;
   }
 };

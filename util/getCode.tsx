@@ -235,7 +235,7 @@ export const BorderTable = styled.table\`
       return `
 import styled from "styled-components";
 
-export const BaseBadge = styled.button\`
+export const BaseBadge = styled.span\`
   padding: 4px;
   font-size: 14px;
   border-radius: 4px;
@@ -247,7 +247,7 @@ export const BaseBadge = styled.button\`
       return `
 import styled from "styled-components";
 
-export const DarkBadge = styled.button\`
+export const DarkBadge = styled.span\`
   padding: 4px;
   font-size: 14px;
   border-radius: 4px;
@@ -260,7 +260,7 @@ export const DarkBadge = styled.button\`
       return `
 import styled from "styled-components";
 
-export const GradientBadge = styled.button\`
+export const GradientBadge = styled.span\`
   padding: 4px;
   font-size: 14px;
   color: #fff;
@@ -275,6 +275,18 @@ export const GradientBadge = styled.button\`
   &:hover {
     background-position: 100% 0;
   }
+\`;
+`;
+    //RoundBadge
+    case "RoundBadge":
+      return `
+import styled from "styled-components";
+
+export const RoundBadge = styled.span\`
+  padding: 4px;
+  font-size: 14px;
+  border-radius: 200px;
+  background-color: ${colorhex};
 \`;
 `;
   }

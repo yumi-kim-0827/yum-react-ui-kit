@@ -5,8 +5,7 @@ import styled from "styled-components";
 
 const SideNavWrap = styled.div`
   position: sticky;
-  top: 0;
-  padding: 20px;
+  top: 20px;
   width: 100%;
   color: #fff;
   font-weight: bold;
