@@ -23,7 +23,7 @@ export const BaseButton = styled.button\`
     background-color: ${subcolorhex};
   }
 \`;
-                  `;
+`;
     //GradientButton
     case "GradientButton":
       return `
@@ -48,7 +48,7 @@ export const GradientButton = styled.button\`
     background-position: 100% 0;
   }
 \`;
-                `;
+`;
     //OutlineButton
     case "OutlineButton":
       return `
@@ -76,7 +76,7 @@ export const OutlineButton = styled.button\`
     background-position: 100% 0;
   }
 \`;
-                `;
+`;
     //BaseInput
     case "BaseInput":
       return `
@@ -90,7 +90,7 @@ export const BaseInput = styled.input\`
   border-bottom: 3px solid ${colorhex};
   }
 \`;
-                `;
+`;
     //BaseTextArea
     case "BaseTextArea":
       return `
@@ -106,7 +106,7 @@ export const BaseTextArea = styled.textarea\`
   }
   resize: none;
 \`;
-                  `;
+`;
     //FileInput
     case "FileInput":
       return `
@@ -123,7 +123,7 @@ export const FileInput = styled.input.attrs({
     display: none;
   }
 \`
-              `;
+`;
     //BaseAlert
     case "BaseAlert":
       return `
@@ -134,19 +134,19 @@ export const BaseAlert = styled.div\`
   color: ${colorhex};
   border: 1px solid ${colorhex};
 \`
-              `;
+`;
     //BorderAlert
     case "BorderAlert":
       return `
 import styled from "styled-components";
 
 export const BorderAlert = styled.div\`
-padding: 10px;
-color: ${colorhex};
-border: 1px solid #d3d3d3;
-border-left: 3px solid ${colorhex};
+  padding: 10px;
+  color: ${colorhex};
+  border: 1px solid #d3d3d3;
+  border-left: 3px solid ${colorhex};
 \`
-              `;
+`;
     //BaseTable
     case "BaseTable":
       return `
@@ -166,276 +166,116 @@ export const BaseTable = styled.table\`
     padding: 10px;
     border: 1px solid #e2e2e2;
   }
-  \`;
----------------------------  
-  ** BaseTable 사용하기
-  return (
-    <BaseTable>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Dames</td>
-          <td>light</td>
-          <td>YUM08271</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Foria</td>
-          <td>marvin</td>
-          <td>YUM08272</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Elisa</td>
-          <td>gallian</td>
-          <td>YUM08273</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Larry</td>
-          <td>treasure</td>
-          <td>YUM08274</td>
-        </tr>
-      </tbody>
-    </BaseTable>
-  )
-        `;
+\`;
+`;
     //DarkTable
     case "DarkTable":
       return `
 import styled from "styled-components";
 
 export const DarkTable = styled.table\`
-width: 100%;
-text-align: left;
-color: #fff;
-background-color: ${colorhex};
-thead {
-  background-color: ${subcolorhex};
-}
-th,
-td {
-  padding: 10px;
-  border: 1px solid #e2e2e2;
-}
-  \`;
----------------------------    
-  ** DarkTable 사용하기
-  return (
-    <DarkTable>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Dames</td>
-          <td>light</td>
-          <td>YUM08271</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Foria</td>
-          <td>marvin</td>
-          <td>YUM08272</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Elisa</td>
-          <td>gallian</td>
-          <td>YUM08273</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Larry</td>
-          <td>treasure</td>
-          <td>YUM08274</td>
-        </tr>
-      </tbody>
-    </DarkTable>
-  )
-        `;
+  width: 100%;
+  text-align: left;
+  color: #fff;
+  background-color: ${colorhex};
+  thead {
+    background-color: ${subcolorhex};
+  }
+  th,
+  td {
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+  }
+\`;
+`;
     //RoundTable
     case "RoundTable":
       return `
 import styled from "styled-components";
 
 export const RoundTable = styled.table\`
-width: 100%;
-text-align: left;
-border-radius: 10px;
-border-spacing: 0;
-overflow: hidden;
-thead {
+  width: 100%;
+  text-align: left;
   border-radius: 10px;
-  background-color: ${colorhex};
-}
-tbody tr td {
-  border-bottom: 1px solid ${colorhex};
-}
-th,
-td {
-  padding: 10px;
-}
-  \`;
----------------------------  
-  ** RoundTable 사용하기
-  return (
-    <RoundTable>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Dames</td>
-          <td>light</td>
-          <td>YUM08271</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Foria</td>
-          <td>marvin</td>
-          <td>YUM08272</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Elisa</td>
-          <td>gallian</td>
-          <td>YUM08273</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Larry</td>
-          <td>treasure</td>
-          <td>YUM08274</td>
-        </tr>
-      </tbody>
-    </RoundTable>
-  )
-        `;
+  border-spacing: 0;
+  overflow: hidden;
+  thead {
+    border-radius: 10px;
+    background-color: ${colorhex};
+  }
+  tbody tr td {
+    border-bottom: 1px solid ${colorhex};
+  }
+  th,
+  td {
+    padding: 10px;
+  }
+\`;
+`;
     //BorderTable
     case "BorderTable":
       return `
 import styled from "styled-components";
 
 export const BorderTable = styled.table\`
-width: 100%;
-text-align: left;
-border-spacing: 0;
-border-top: 3px solid ${colorhex};
-overflow: hidden;
-th,
-td {
-  padding: 10px;
-  border-bottom: 1px solid ${colorhex};
-}
-  \`;
----------------------------    
-  ** BorderTable 사용하기
-  return (
-    <BorderTable>
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Dames</td>
-          <td>light</td>
-          <td>YUM08271</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Foria</td>
-          <td>marvin</td>
-          <td>YUM08272</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Elisa</td>
-          <td>gallian</td>
-          <td>YUM08273</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Larry</td>
-          <td>treasure</td>
-          <td>YUM08274</td>
-        </tr>
-      </tbody>
-    </BorderTable>
-  )
-        `;
+  width: 100%;
+  text-align: left;
+  border-spacing: 0;
+  border-top: 3px solid ${colorhex};
+  overflow: hidden;
+  th,
+  td {
+    padding: 10px;
+    border-bottom: 1px solid ${colorhex};
+  }
+\`;
+`;
     //BaseBadge
     case "BaseBadge":
       return `
 import styled from "styled-components";
 
 export const BaseBadge = styled.button\`
-padding: 4px;
-font-size: 14px;
-border-radius: 4px;
-border: 1px solid ${colorhex};
+  padding: 4px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid ${colorhex};
 \`;
-        `;
+`;
     //DarkBadge
     case "DarkBadge":
       return `
 import styled from "styled-components";
 
 export const DarkBadge = styled.button\`
-padding: 4px;
-font-size: 14px;
-border-radius: 4px;
-color: #fff;
-background-color: ${colorhex};
+  padding: 4px;
+  font-size: 14px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: ${colorhex};
 \`;
-        `;
+`;
     //GradientBadge
     case "GradientBadge":
       return `
 import styled from "styled-components";
 
 export const GradientBadge = styled.button\`
-padding: 4px;
-font-size: 14px;
-color: #fff;
-border-radius: 4px;
-background-image: linear-gradient(
-  90deg,
-  ${colorhex},
-  ${subcolorhex}
-);
-background-size: 150% 100%;
-transition: background 0.4s ease-in-out;
-&:hover {
-  background-position: 100% 0;
-}
+  padding: 4px;
+  font-size: 14px;
+  color: #fff;
+  border-radius: 4px;
+  background-image: linear-gradient(
+    90deg,
+    ${colorhex},
+    ${subcolorhex}
+  );
+  background-size: 150% 100%;
+  transition: background 0.4s ease-in-out;
+  &:hover {
+    background-position: 100% 0;
+  }
 \`;
-        `;
+`;
   }
 };
