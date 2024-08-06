@@ -289,5 +289,17 @@ export const RoundBadge = styled.span\`
   background-color: ${colorhex};
 \`;
 `;
+    //BottomBorderBadge
+    case "BottomBorderBadge":
+      return `
+import styled from "styled-components";
+
+export const BottomBorderBadge = styled.span\`
+  padding: 4px;
+  font-size: 14px;
+  border: 1px solid ${colorhex};
+  border-left: 3px solid ${colorhex};
+\`;
+`;
   }
 };

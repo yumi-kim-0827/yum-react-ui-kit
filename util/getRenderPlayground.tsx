@@ -5,6 +5,7 @@ import { BaseBadge } from "@/yum_ui_kit/BaseBadge.style";
 import { DarkBadge } from "@/yum_ui_kit/DarkBadge.style";
 import { GradientBadge } from "@/yum_ui_kit/GradientBadge.style";
 import { RoundBadge } from "@/yum_ui_kit/RoundBadge.style";
+import { BottomBorderBadge } from "@/yum_ui_kit/BottomBorderBadge.style";
 import { BaseButton } from "@/yum_ui_kit/BaseButton.style";
 import { GradientButton } from "@/yum_ui_kit/GradientButton.style";
 import { OutlineButton } from "@/yum_ui_kit/OutlineButton.style";
@@ -48,6 +49,9 @@ export const renderPlayground = ({
           </PlayGround>
           <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
             <RoundBadge colorhex={colorHex}>라운드 뱃지</RoundBadge>
+          </PlayGround>
+          <PlayGround colorhex={colorHex} subcolorhex={secondColorHex}>
+            <BottomBorderBadge colorhex={colorHex}>보더 뱃지</BottomBorderBadge>
           </PlayGround>
         </>
       );

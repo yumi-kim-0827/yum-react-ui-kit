@@ -331,5 +331,17 @@ const ExampleComponent = () => {
 };
 
 export default ExampleComponent;`;
+    //BottomBorderBadge
+    case "BottomBorderBadge":
+      return `${codeSnippet}
+const ExampleComponent = () => {
+  return (
+    <>
+      <BottomBorderBadge>텍스트</BottomBorderBadge>;
+    </>
+  );
+};
+
+export default ExampleComponent;`;
   }
 };
