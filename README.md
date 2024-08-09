@@ -18,7 +18,6 @@ Project View : [here](https://yum-react-ui-kit.vercel.app/)
 # Table of Contents
 
 - [[1] About the Project](#1-about-the-project)
-  - [Features](#features)
   - [Technologies](#technologies)
 - [[2] Getting Started](#2-getting-started)
   - [Prerequisites](#prerequisites)
@@ -34,8 +33,6 @@ Project View : [here](https://yum-react-ui-kit.vercel.app/)
 
 메인과 서브 컬라를 정하면 맞춤 칼라를 적용한 리액트 컴포넌트 UI KIT 코드를
 복사하셔서 사용하실 수 있습니다.
-
-## Features
 
 ## Technologies
 
