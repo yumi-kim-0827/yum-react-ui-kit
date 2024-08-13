@@ -301,5 +301,25 @@ export const BottomBorderBadge = styled.span\`
   border-left: 3px solid ${colorhex};
 \`;
 `;
+    //BaseCard
+    case "BaseCard":
+      return `
+import styled from "styled-components";
+
+export const BaseCard = styled.div\`
+  padding: 10px;
+  border: 1px solid ${colorhex};
+
+  h2 {
+    padding: 5px;
+    border-bottom: 1px solid ${colorhex};
+  }
+
+  p {
+    padding: 10px;
+  }
+\`;
+`;
+    //BaseCard
   }
 };

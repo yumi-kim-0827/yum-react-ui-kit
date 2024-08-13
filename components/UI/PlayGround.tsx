@@ -52,7 +52,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
         }
       }
     }
-    return "";
+    return "undefined";
   };
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
       alert("복사할 코드가 없습니다.");
     }
   };
-
+  console.log(componentName);
   return (
     <PlayGroundContainer>
       <PlayGroundHead>{componentName} 결과</PlayGroundHead>
