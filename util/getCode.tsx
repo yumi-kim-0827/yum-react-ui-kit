@@ -320,6 +320,30 @@ export const BaseCard = styled.div\`
   }
 \`;
 `;
-    //BaseCard
+    //GradientCard
+    case "GradientCard":
+      return `
+import styled from "styled-components";
+
+export const GradientCard = styled.div\`
+  padding: 10px;
+  color: #fff;
+  background-image: linear-gradient(
+    90deg,
+    ${colorhex},
+    ${subcolorhex}
+  );
+
+  h2 {
+    padding: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.356);
+  }
+
+  p {
+    padding: 10px;
+  }
+\`;
+`;
+    //GradientCard
   }
 };
