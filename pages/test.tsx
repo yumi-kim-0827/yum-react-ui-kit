@@ -1,20 +1,16 @@
 import styled from "styled-components";
 
-export const RoundTable = styled.table`
-  width: 100%;
-  text-align: left;
-  border-radius: 10px;
-  border-spacing: 0;
-  overflow: hidden;
-  thead {
-    border-radius: 10px;
-    background-color: #c128dc;
+export const GradientCard = styled.div`
+  padding: 10px;
+  color: #fff;
+  background-image: linear-gradient(90deg, #982c64, #5628fa);
+
+  h2 {
+    padding: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.356);
   }
-  tbody tr td {
-    border-bottom: 1px solid #c128dc;
-  }
-  th,
-  td {
+
+  p {
     padding: 10px;
   }
 `;
@@ -22,43 +18,17 @@ export const RoundTable = styled.table`
 const ExampleComponent = () => {
   return (
     <>
-      <RoundTable>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Username</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>Dames</td>
-            <td>light</td>
-            <td>YUM08271</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Foria</td>
-            <td>marvin</td>
-            <td>YUM08272</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Elisa</td>
-            <td>gallian</td>
-            <td>YUM08273</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Larry</td>
-            <td>treasure</td>
-            <td>YUM08274</td>
-          </tr>
-        </tbody>
-      </RoundTable>
-      ;
+      <GradientCard>
+        <h2>카드 제목</h2>
+        <p>
+          오늘은 햇살이 반짝이는 예쁜 날이었다. 아침 일찍 일어나 창문을 열자,
+          귀여운 참새 한 마리가 내 창가에 앉아 나를 반기듯 짹짹거렸다. 작은
+          눈동자를 반짝이며 나를 바라보는 모습이 어찌나 사랑스러운지, 잠시 넋을
+          놓고 바라봤다. 참새는 잠시 후 날아갔지만, 그 작은 친구 덕분에 하루가
+          더 환하게 시작된 것 같았다. 오늘은 모든 게 잘 풀릴 것 같은 기분이
+          들었다. 간단한 아침을 먹고, 햇살을 듬뿍 받으며 산책을 다녀와야겠다.
+        </p>
+      </GradientCard>
     </>
   );
 };

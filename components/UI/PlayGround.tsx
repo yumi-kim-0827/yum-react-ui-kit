@@ -65,7 +65,7 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
   const codeBlock = getBlock(componentName, codeSnippet);
   const [showCodeBlock, setShowCodeBlock] = useState(false);
 
-  const handlerCodeCopy: React.MouseEventHandler<HTMLButtonElement> = () => {
+  const handleCopySnippet: React.MouseEventHandler<HTMLButtonElement> = () => {
     if (codeSnippet) {
       window.navigator.clipboard.writeText(codeSnippet);
       alert("코드 복사가 완료되었습니다.");
@@ -73,7 +73,16 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
       alert("복사할 코드가 없습니다.");
     }
   };
-  console.log(componentName);
+
+  const handleCopyBlock: React.MouseEventHandler<HTMLButtonElement> = () => {
+    if (codeBlock) {
+      window.navigator.clipboard.writeText(codeBlock);
+      alert("코드 복사가 완료되었습니다.");
+    } else {
+      alert("복사할 코드가 없습니다.");
+    }
+  };
+
   return (
     <PlayGroundContainer>
       <PlayGroundHead>{componentName} 결과</PlayGroundHead>
@@ -102,7 +111,10 @@ const PlayGround: React.FC<PlayGounrdProps> = ({
       </PlayGroundHead>
       <PlayGroundContent>
         <CodeSnipet>
-          <ButtonWithIcon imgSrc="i_copy.svg" onClick={handlerCodeCopy} />
+          <ButtonWithIcon
+            imgSrc="i_copy.svg"
+            onClick={showCodeBlock ? handleCopyBlock : handleCopySnippet}
+          />
           {/* showCodeBlock 불린값에 따라 codeSnippet과 codeBlock 보여짐 */}
           {showCodeBlock ? codeBlock : codeSnippet}
         </CodeSnipet>
